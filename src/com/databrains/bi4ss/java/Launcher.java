@@ -13,7 +13,7 @@ public class Launcher extends Application {
     public void start(Stage stage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource(""));
+            root = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/Home.fxml"));
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

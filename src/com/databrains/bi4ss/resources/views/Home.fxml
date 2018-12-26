@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="690.0" prefWidth="1186.0" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.HomeController">
+   <children>
+      <Label layoutX="420.0" layoutY="21.0" prefHeight="58.0" text="Select User Type">
+         <font>
+            <Font name="Tahoma" size="34.0" />
+         </font>
+         <styleClass>
+            <String fx:value="title-header" />
+            <String fx:value="title" />
+         </styleClass>
+      </Label>
+      <AnchorPane layoutX="141.0" layoutY="95.0" prefHeight="500.0" prefWidth="440.0" styleClass="box-chooser" AnchorPane.leftAnchor="141.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <ImageView fitHeight="490.0" fitWidth="470.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/home/support-staff.png" />
+               </image>
+            </ImageView>
+            <Pane opacity="0.82" prefHeight="500.0" prefWidth="440.0" style="-fx-background-color: #148BB1;" styleClass="pane-chooser">
+               <children>
+                  <Label layoutX="70.0" layoutY="158.0" prefHeight="151.0" prefWidth="301.0" styleClass="content-chooser" text="This section show statistic for Teacher user account" wrapText="true" />
+               </children>
+            </Pane>
+            <Label layoutX="150.0" layoutY="90.0" prefHeight="66.0" prefWidth="182.0" styleClass="title-chooser" text="TEACHER" />
+            <JFXButton layoutX="90.0" layoutY="348.0" onAction="#onLoginTeacher" prefHeight="57.0" prefWidth="264.0" styleClass="btn-chooser" text="LOGIN" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="616.0" layoutY="95.0" prefHeight="500.0" prefWidth="440.0" styleClass="box-chooser" AnchorPane.leftAnchor="616.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <ImageView fitHeight="490.0" fitWidth="470.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/home/teacher.png" />
+               </image>
+            </ImageView>
+            <Pane opacity="0.82" prefHeight="500.0" prefWidth="440.0" style="-fx-background-color: #694A97;" styleClass="pane-chooser" />
+            <JFXButton layoutX="90.0" layoutY="348.0" onAction="#onLoginSupportStaff" prefHeight="57.0" prefWidth="264.0" styleClass="btn-chooser" text="LOGIN" />
+            <Label layoutX="118.0" layoutY="90.0" prefHeight="66.0" styleClass="title-chooser" text="SUPPORT STAFF" />
+            <Label layoutX="70.0" layoutY="165.0" prefHeight="151.0" prefWidth="301.0" styleClass="content-chooser" text="This section show statistic for support staff user account" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
