@@ -1,0 +1,15 @@
+* {
+    -fx-font-family: Tahoma Arial
+}
+
+.title {
+    -fx-font-size: 30px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+}
+
+.cards {
+    -fx-padding: 10px;
+    -fx-background-color: #FFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 0);
+    -fx-background-radius: 10
+}
