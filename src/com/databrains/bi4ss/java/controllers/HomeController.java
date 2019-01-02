@@ -17,8 +17,8 @@ public class HomeController {
     private void onLoginTeacher() {
         Stage mStage = (Stage) root.getScene().getWindow();
         try {
-            Parent teacherDashboardView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/TeacherDashboard.fxml"));
-            mStage.setScene(new Scene(teacherDashboardView));
+            Parent mainStartView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/System.fxml"));
+            mStage.setScene(new Scene(mainStartView));
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
