@@ -70,3 +70,22 @@
 }
 
 /* End select level part */
+
+/* Start Main LMD */
+
+.lmd-radio {
+    -fx-font-size: 17px;
+    -fx-cursor: hand
+}
+
+.combo-subject {
+    -fx-pref-width: 150px;
+    -fx-font-size: 16px;
+    -jfx-focus-color: #0f9d58;
+    -jfx-unfocus-color: #777;
+    -fx-prompt-text-fill: #333;
+    -jfx-label-float: true;
+    -fx-cursor: hand;
+}
+
+/* End Main LMD */
