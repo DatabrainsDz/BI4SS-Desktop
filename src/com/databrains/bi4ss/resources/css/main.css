@@ -1,4 +1,4 @@
-.cards-bar-chart {
+.cards-chart {
     -fx-pref-width: 400px;
     -fx-pref-height: 250px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0);
@@ -16,6 +16,8 @@
     -fx-font-size: 16px;
     -fx-fill: #666
 }
+
+/* Start select year part */
 
 .lbl-select-year {
     -fx-font-size: 18px;
@@ -41,3 +43,30 @@
     -fx-font-weight: bold;
     -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
 }
+
+/* End select year part */
+
+/* Start select level part */
+
+.cards-level-box {
+    -fx-pref-width: 130px;
+    -fx-pref-height: 100px;
+    -fx-background-color: #FFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0);
+    -fx-background-radius: 10
+}
+
+.cards-level-box:hover {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.cards-level-title {
+    -fx-font-family: arial;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+    -fx-opacity: 0.9;
+}
+
+/* End select level part */
