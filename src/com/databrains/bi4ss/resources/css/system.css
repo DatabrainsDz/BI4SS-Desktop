@@ -1,0 +1,22 @@
+* {
+    -fx-font-family: Tahoma, Arial, "Comic Sans MS"
+}
+
+.nav-bar {
+    -fx-background-color: #FFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 0);
+}
+
+.icon-nav:hover {
+    -fx-fill: linear-gradient(from 0 0 to 50% 100%, #2196f3, #333);
+    -fx-cursor: hand;
+}
+
+JFXHamburger {
+    -fx-cursor: hand;
+}
+
+.lbl-date {
+    -fx-font-size: 18px;
+    -fx-text-fill: linear-gradient(from 0 0 to 100px 100px, #2196f3, #333)
+}
