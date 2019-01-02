@@ -78,9 +78,8 @@
     -fx-cursor: hand
 }
 
-.combo-subject {
-    -fx-pref-width: 150px;
-    -fx-font-size: 16px;
+.tree-subject {
+    -fx-font-size: 13px;
     -jfx-focus-color: #0f9d58;
     -jfx-unfocus-color: #777;
     -fx-prompt-text-fill: #333;

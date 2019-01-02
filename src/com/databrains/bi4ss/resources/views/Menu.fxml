@@ -2,19 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
-<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="620.0" prefWidth="270.0" spacing="1.0" style="-fx-background-color: #EEE;" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXButton accessibleText="btnHome" alignment="BASELINE_LEFT" graphicTextGap="20.0" maxWidth="1.7976931348623157E308" styleClass="btn" text="Accueil">
-         <graphic>
-            <MaterialIconView glyphName="HOME" size="30" styleClass="icon" />
-         </graphic></JFXButton>
       <JFXButton accessibleText="btnMainStart" alignment="BASELINE_LEFT" graphicTextGap="20.0" maxWidth="1.7976931348623157E308" styleClass="btn" text="Main">
          <graphic>
-            <MaterialDesignIconView glyphName="VIEW_QUILT" size="29" styleClass="icon" />
+            <MaterialIconView glyphName="HOME" size="30" styleClass="icon" />
          </graphic></JFXButton>
       <JFXButton accessibleText="onLogout" alignment="BASELINE_LEFT" graphicTextGap="20.0" maxWidth="1.7976931348623157E308" styleClass="btn" text="Logout">
          <graphic>
