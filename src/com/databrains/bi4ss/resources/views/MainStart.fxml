@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="640.0" prefWidth="1200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane prefHeight="640.0" prefWidth="1200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainStartController">
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="250.0" spacing="20.0" StackPane.alignment="TOP_LEFT">
          <children>
-            <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Past years statistics">
+            <StackedBarChart fx:id="chartStackedBarPastYears" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Past years statistics">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -45,32 +45,32 @@
             <Label styleClass="lbl-select-year" text="Choose a Year to continue analysis" />
             <HBox alignment="CENTER" spacing="15.0">
                <children>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2015" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2015" />
                      </children>
                   </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2014" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2014" />
                      </children>
                   </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2013" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2013" />
                      </children>
                   </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2012" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2012" />
                      </children>
                   </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2011" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2011" />
                      </children>
                   </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#on2010" styleClass="cards-year-box">
                      <children>
                         <Label styleClass="cards-year-title" text="2010" />
                      </children>
