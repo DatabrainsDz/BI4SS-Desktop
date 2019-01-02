@@ -74,8 +74,6 @@ public class TeacherDashboardController implements Initializable {
 
         genderChart.setData(dataGenderChart);
     }
-    //
-    //
 
     private void initLineChart() {
         //defining a series

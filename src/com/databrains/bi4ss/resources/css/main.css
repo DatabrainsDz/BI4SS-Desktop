@@ -1,0 +1,43 @@
+.cards-bar-chart {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 250px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0);
+    -fx-background-color: #FFF;
+    -fx-background-radius: 5
+}
+
+.title {
+    -fx-font-family: tahoma;
+    -fx-font-size: 28px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+}
+
+.txt-desc {
+    -fx-font-size: 16px;
+    -fx-fill: #666
+}
+
+.lbl-select-year {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #666;
+}
+.cards-year-box {
+    -fx-pref-width: 150px;
+    -fx-pref-height: 150px;
+    -fx-background-color: #FFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0);
+    -fx-background-radius: 10
+}
+
+.cards-year-box:hover {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 15, 0, 0, 0);
+}
+
+.cards-year-title {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+}
