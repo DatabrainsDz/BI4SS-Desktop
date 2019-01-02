@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
@@ -9,6 +8,7 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -17,26 +17,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckTreeView?>
 
-<VBox prefHeight="650.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.resources.views.Main">
+<VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainLMDController">
    <children>
       <Label styleClass="title" text="2015 Year &gt; 1LMD" />
       <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" prefWidth="200.0" spacing="30.0">
                <children>
-                  <JFXRadioButton maxWidth="1.7976931348623157E308" selected="true" styleClass="lmd-radio" text="Admis and Not" />
-                  <JFXRadioButton maxWidth="1.7976931348623157E308" styleClass="lmd-radio" text="Subjects" />
-                  <JFXComboBox promptText="Subject" styleClass="combo-subject">
+                  <JFXRadioButton fx:id="radioAdmisAndNot" maxWidth="1.7976931348623157E308" selected="true" styleClass="lmd-radio" text="Admis and Not">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tglAdmisSubject" />
+                     </toggleGroup></JFXRadioButton>
+                  <JFXRadioButton fx:id="radioSubject" maxWidth="1.7976931348623157E308" styleClass="lmd-radio" text="Subjects" toggleGroup="$tglAdmisSubject" />
+                  <CheckTreeView fx:id="treeSubject" prefHeight="370.0" styleClass="tree-subject" visible="false">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                  </JFXComboBox>
+                  </CheckTreeView>
                </children>
             </VBox>
             <StackPane>
                <children>
-                  <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0">
+                  <GridPane fx:id="gridAdmis" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -47,7 +51,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <BarChart maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="1LMD Students">
+                        <BarChart fx:id="chartBarStudents" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="1LMD Students">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -55,8 +59,8 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <PieChart styleClass="cards-chart" title="Non Admis" GridPane.columnIndex="1" />
-                        <PieChart styleClass="cards-chart" title="Non Admis" GridPane.rowIndex="1" />
+                        <PieChart fx:id="chartPieNonAdmisCity" styleClass="cards-chart" title="Non Admis" GridPane.columnIndex="1" />
+                        <PieChart fx:id="chartPieNonAdmisGender" styleClass="cards-chart" title="Non Admis" GridPane.rowIndex="1" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <Label text="Other Matrices">
@@ -68,7 +72,7 @@
                         </StackPane>
                      </children>
                   </GridPane>
-                  <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0" visible="false">
+                  <GridPane fx:id="gridSubject" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0" visible="false">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -78,7 +82,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <StackedBarChart styleClass="cards-chart">
+                        <StackedBarChart fx:id="chartStackedBarSubjectByAdmisGender" styleClass="cards-chart" title="Subject by Admis Gender">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -86,7 +90,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart styleClass="cards-chart" GridPane.columnIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarSubjectByCity" styleClass="cards-chart" title="Subject by City" GridPane.columnIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -118,11 +122,14 @@
             </StackPane>
          </children>
       </HBox>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" prefWidth="1160.0">
          <children>
-            <JFXRadioButton selected="true" styleClass="lmd-radio" text="Full Year" />
-            <JFXRadioButton styleClass="lmd-radio" text="Semester One" />
-            <JFXRadioButton styleClass="lmd-radio" text="Semester Two" />
+            <JFXRadioButton fx:id="radioFull" selected="true" styleClass="lmd-radio" text="Full Year">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tglSemester" />
+               </toggleGroup></JFXRadioButton>
+            <JFXRadioButton fx:id="radioSemesterOne" styleClass="lmd-radio" text="Semester One" toggleGroup="$tglSemester" />
+            <JFXRadioButton fx:id="radioSemesterTwo" styleClass="lmd-radio" text="Semester Two" toggleGroup="$tglSemester" />
          </children>
       </HBox>
    </children>
