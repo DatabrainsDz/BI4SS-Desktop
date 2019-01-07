@@ -15,6 +15,11 @@ public class HomeController {
 
     @FXML
     private void onLoginTeacher() {
+
+    }
+
+    @FXML
+    private void onLoginSupportStaff() {
         Stage mStage = (Stage) root.getScene().getWindow();
         try {
             Parent mainStartView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/System.fxml"));
@@ -22,10 +27,5 @@ public class HomeController {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-    }
-
-    @FXML
-    private void onLoginSupportStaff() {
-
     }
 }

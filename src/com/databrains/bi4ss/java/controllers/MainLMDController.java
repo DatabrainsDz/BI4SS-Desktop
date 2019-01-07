@@ -1,6 +1,9 @@
 package com.databrains.bi4ss.java.controllers;
 
 import com.databrains.bi4ss.java.type.Subjects;
+import com.databrains.bi4ss.java.utils.Constants;
+import com.databrains.bi4ss.java.utils.Params;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -13,6 +16,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.CheckBoxTreeItem;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeItem;
 import javafx.scene.layout.GridPane;
@@ -25,13 +29,17 @@ import java.util.ResourceBundle;
 
 public class MainLMDController implements Initializable {
 
+    // Label show selected Year and Level
+    @FXML
+    private Label lblYear, lblLevel;
+
     /* Radio Select Type view [Admis and not/Subject] */
     @FXML
     private JFXRadioButton radioAdmisAndNot, radioSubject;
 
     // For select subject names
     @FXML
-    private CheckTreeView<String> treeSubject;
+    private JFXComboBox<String> comboSubject;
 
     /* Radio Select Semester [Full/Semester 1/Semester 2] */
     @FXML
@@ -51,11 +59,53 @@ public class MainLMDController implements Initializable {
     @FXML
     private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity;
 
-    // Selected study level for changing data of combo subject
-    public static int selectedLevel = 1;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lblYear.setText(String.valueOf(Params.selectedYear));
+        lblYear.setOnMouseClicked(e -> MainSecondController.dialogLevel.close()); // Back to Main Second
+        switch (Params.selectedLevel) {
+            case "MIAS1":
+                lblLevel.setText("Licence 1");
+                break;
+            case "MIAS2":
+                lblLevel.setText("Licence 2");
+                break;
+            case "MIAS3":
+                lblLevel.setText("Licence 3");
+                break;
+            case "MGI1":
+                lblLevel.setText("Master 1");
+                break;
+            case "MGI2":
+                lblLevel.setText("Master 2");
+                break;
+        }
+
+        // Init the name of radio (: Selected Level)
+        switch (Params.selectedLevel) {
+            case "MIAS1":
+                radioSemesterOne.setText("Semester One");
+                radioSemesterTwo.setText("Semester Two");
+                break;
+            case "MIAS2":
+                radioSemesterOne.setText("Semester One");
+                radioSemesterTwo.setText("Semester Two");
+                break;
+            case "MIAS3":
+                radioSemesterOne.setText("Semester Three");
+                radioSemesterTwo.setText("Semester Four");
+                break;
+            case "MGI1":
+                radioSemesterOne.setText("Semester One");
+                radioSemesterTwo.setText("Semester Two");
+                break;
+            case "MGI2":
+                radioSemesterOne.setText("Semester Three");
+                radioSemesterTwo.setText("Semester Four");
+                break;
+
+        }
+
         initComboSubject();
         initRadio();
         initChartsAdmisAndNot();
@@ -67,12 +117,12 @@ public class MainLMDController implements Initializable {
         radioAdmisAndNot.setOnAction(e -> {
             gridAdmis.setVisible(true);
             gridSubject.setVisible(false);
-            treeSubject.setVisible(false);
+            comboSubject.setVisible(false);
         });
         radioSubject.setOnAction(e -> {
             gridAdmis.setVisible(false);
             gridSubject.setVisible(true);
-            treeSubject.setVisible(true);
+            comboSubject.setVisible(true);
         });
 
         /* Radio Of Year Semester view [Full/ by Semester] */
@@ -88,34 +138,18 @@ public class MainLMDController implements Initializable {
     }
 
     private void initComboSubject() {
-        // Create the data to show in the CheckTreeView
-        CheckBoxTreeItem<String> root = new CheckBoxTreeItem<>("Subject");
-        root.setExpanded(true);
-
-        // Set the data to the comboBox
-        switch (selectedLevel) {
-            case 1:
-                for (String subject : Subjects.LMD1)
-                    root.getChildren().add(new CheckBoxTreeItem<String>(subject));
+        // Set the data (subjects) to the comboBox
+        switch (Params.selectedLevel) {
+            case "MIAS1":
+                    comboSubject.getItems().addAll(Subjects.LICENCE1);
                 break;
-            case 2:
-                for (String subject : Subjects.LMD2)
-                    root.getChildren().add(new CheckBoxTreeItem<String>(subject));
+            case "MIAS2":
+                comboSubject.getItems().addAll(Subjects.LICENCE2);
                 break;
-            case 3:
-                for (String subject : Subjects.LMD3)
-                    root.getChildren().add(new CheckBoxTreeItem<String>(subject));
+            case "MIAS3":
+                comboSubject.getItems().addAll(Subjects.LICENCE3);
                 break;
         }
-
-        treeSubject.setRoot(root);
-
-        // and listen to the relevant events (e.g. when the checked items change).
-        treeSubject.getCheckModel().getCheckedItems().addListener(new ListChangeListener<TreeItem<String>>() {
-            public void onChanged(ListChangeListener.Change<? extends TreeItem<String>> c) {
-                System.out.println(treeSubject.getCheckModel().getCheckedItems());
-            }
-        });
     }
 
     private void initChartsAdmisAndNot() {
@@ -176,7 +210,7 @@ public class MainLMDController implements Initializable {
         seriesMale.setName("Male");
         seriesFemale.setName("Female");
 
-        for(String subject: Subjects.LMD1) {
+        for (String subject : Subjects.LICENCE1) {
             seriesMale.getData().add(new XYChart.Data<String, Number>(subject, 50));
             seriesFemale.getData().add(new XYChart.Data<String, Number>(subject, 45));
         }
@@ -195,7 +229,7 @@ public class MainLMDController implements Initializable {
         seriesVialar.setName("Tissemsilet");
         seriesForeign.setName("Foreign");
 
-        for(String subject: Subjects.LMD1) {
+        for (String subject : Subjects.LICENCE1) {
             seriesTiaret.getData().add(new XYChart.Data<String, Number>(subject, 40));
             seriesVialar.getData().add(new XYChart.Data<String, Number>(subject, 25));
             seriesForeign.getData().add(new XYChart.Data<String, Number>(subject, 5));

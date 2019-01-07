@@ -1,6 +1,7 @@
 package com.databrains.bi4ss.java.controllers;
 
 import com.databrains.bi4ss.java.Launcher;
+import com.databrains.bi4ss.java.utils.Params;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDrawer;
@@ -20,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -69,6 +71,9 @@ public class SystemController implements Initializable {
         } catch(IOException ioe) {
             ioe.printStackTrace();
         }
+
+        // When i click to the box in home change the view
+        initActionInHomeView();
 
         // Init Dialog About
         try {
@@ -120,6 +125,26 @@ public class SystemController implements Initializable {
                 drawerMenu.close();
                 drawerMenu.setStyle("-fx-pref-width: 0px");
             }
+        }
+    }
+
+    private void initActionInHomeView() {
+        // Init Action in home view
+        HBox cardsMainStart = (HBox) (((VBox) mainStartView.getChildren().get(1)).getChildren().get(1));
+        for(Object box : cardsMainStart.getChildren()) {
+            StackPane card = (StackPane) box;
+            card.setOnMouseClicked(e -> {
+                Params.selectedYear = Integer.parseInt(((Label)(card.getChildren().get(0))).getText());
+                try {
+                    // Launch Main Second view
+                    Parent mainSecond = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/MainSecond.fxml"));
+                    setNode(mainSecond);
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+
+            });
+
         }
     }
 
