@@ -94,7 +94,6 @@ public class SystemController implements Initializable {
     private void initMenu() { // initalize menu (show / hide)
         try {
             menuDrawerPane = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/Menu.fxml"));
-            drawerMenu.setSidePane(menuDrawerPane);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -123,9 +122,13 @@ public class SystemController implements Initializable {
                 burgerTask.setRate(burgerTask.getRate() * -1);
                 burgerTask.play();
                 drawerMenu.close();
-                drawerMenu.setStyle("-fx-pref-width: 0px");
+                //drawerMenu.setStyle("-fx-pref-width: 0px");
             }
         }
+
+        drawerMenu.setOnDrawerClosed(e -> {
+            drawerMenu.setSidePane();
+        });
     }
 
     private void initActionInHomeView() {
@@ -153,10 +156,11 @@ public class SystemController implements Initializable {
         burgerTask.play();
 
         if(drawerMenu.isShown()) {
-            drawerMenu.close();
             drawerMenu.setStyle("-fx-pref-width: 0px");
+            drawerMenu.close();
         } else {
             drawerMenu.setStyle("-fx-pref-width: 270px");
+            drawerMenu.setSidePane(menuDrawerPane);
             drawerMenu.open();
         }
     }
