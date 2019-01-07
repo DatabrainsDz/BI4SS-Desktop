@@ -1,10 +1,8 @@
 package com.databrains.bi4ss.java.controllers;
 
 import com.databrains.bi4ss.java.models.GeneralYearAdmis;
-import com.databrains.bi4ss.java.type.Subjects;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 
@@ -29,8 +27,6 @@ public class MainStartController implements Initializable {
 
         seriesAdmis.setName("Admis");
         seriesNoAdmis.setName("No Admis");
-
-        String[] years = {"2010", "2011", "2012", "2013", "2014", "2015"};
 
         for(GeneralYearAdmis generalYearAdmis: getDataFromServer()) {
             seriesAdmis.getData().add(new XYChart.Data<String, Number>(String.valueOf(generalYearAdmis.getYear()), generalYearAdmis.getAdmis()));

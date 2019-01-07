@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -14,10 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainSecondController">
    <children>
-      <VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css">
+      <VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0">
          <children>
             <Label fx:id="lblYear" styleClass="title" text="2015 Year" />
             <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
@@ -66,7 +66,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <BarChart maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="Nationality Prespective" GridPane.columnIndex="1">
+                        <BarChart fx:id="chartBarGenderPres" styleClass="cards-chart" title="Gender Prespective">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -74,7 +74,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Gender Prespective">
+                        <StackedBarChart fx:id="chartStackedBarNatPres" styleClass="cards-chart" title="Nationality Prespective" GridPane.columnIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -82,7 +82,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Origin City Prespective" GridPane.rowIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarOriginCityPres" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Origin City Prespective" GridPane.rowIndex="1">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -109,4 +109,8 @@
          </padding>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@../css/main.css" />
+      <URL value="@../css/main-second.css" />
+   </stylesheets>
 </StackPane>
