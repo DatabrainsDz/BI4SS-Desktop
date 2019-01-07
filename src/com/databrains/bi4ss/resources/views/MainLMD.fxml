@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -17,11 +19,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import org.controlsfx.control.CheckTreeView?>
 
 <VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainLMDController">
    <children>
-      <Label styleClass="title" text="2015 Year &gt; 1LMD" />
+      <StackPane>
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <Label fx:id="lblYear" text="2015 Year">
+                     <styleClass>
+                        <String fx:value="title" />
+                        <String fx:value="lbl-link" />
+                     </styleClass>
+                  </Label>
+                  <Label styleClass="title" text="&gt;" />
+                  <Label fx:id="lblLevel" styleClass="title" text="Licence 1" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
       <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" prefWidth="200.0" spacing="30.0">
@@ -31,11 +47,11 @@
                         <ToggleGroup fx:id="tglAdmisSubject" />
                      </toggleGroup></JFXRadioButton>
                   <JFXRadioButton fx:id="radioSubject" maxWidth="1.7976931348623157E308" styleClass="lmd-radio" text="Subjects" toggleGroup="$tglAdmisSubject" />
-                  <CheckTreeView fx:id="treeSubject" prefHeight="370.0" styleClass="tree-subject" visible="false">
+                  <JFXComboBox fx:id="comboSubject" maxWidth="1.7976931348623157E308" prefWidth="160.0" promptText="Selected Subject" styleClass="combo" visible="false">
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="20.0" />
                      </VBox.margin>
-                  </CheckTreeView>
+                  </JFXComboBox>
                </children>
             </VBox>
             <StackPane>

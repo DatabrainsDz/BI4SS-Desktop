@@ -14,94 +14,99 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainSecondController">
    <children>
-      <Label styleClass="title" text="2015 Year" />
-      <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
+      <VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" stylesheets="@../css/main.css">
          <children>
-            <VBox maxHeight="-Infinity" spacing="10.0">
+            <Label fx:id="lblYear" styleClass="title" text="2015 Year" />
+            <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox spacing="10.0">
+                  <VBox maxHeight="-Infinity" spacing="10.0">
                      <children>
-                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                        <VBox fx:id="boxLevel" spacing="10.0">
                            <children>
-                              <Label styleClass="cards-level-title" text="1LMD" />
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                                 <children>
+                                    <Label styleClass="cards-level-title" text="License 1" />
+                                 </children>
+                              </StackPane>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                                 <children>
+                                    <Label styleClass="cards-level-title" text="License 2" />
+                                 </children>
+                              </StackPane>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                                 <children>
+                                    <Label styleClass="cards-level-title" text="License 3" />
+                                 </children>
+                              </StackPane>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                                 <children>
+                                    <Label styleClass="cards-level-title" text="1 Master" />
+                                 </children>
+                              </StackPane>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
+                                 <children>
+                                    <Label styleClass="cards-level-title" text="2 Master" />
+                                 </children>
+                              </StackPane>
                            </children>
-                        </StackPane>
-                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
-                           <children>
-                              <Label styleClass="cards-level-title" text="2LMD" />
-                           </children>
-                        </StackPane>
-                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
-                           <children>
-                              <Label styleClass="cards-level-title" text="3LMD" />
-                           </children>
-                        </StackPane>
-                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
-                           <children>
-                              <Label styleClass="cards-level-title" text="1 Master" />
-                           </children>
-                        </StackPane>
-                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-level-box">
-                           <children>
-                              <Label styleClass="cards-level-title" text="2 Master" />
-                           </children>
-                        </StackPane>
+                        </VBox>
                      </children>
                   </VBox>
-               </children>
-            </VBox>
-            <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <BarChart maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="Nationality Prespective" GridPane.columnIndex="1">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </BarChart>
-                  <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Gender Prespective">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </StackedBarChart>
-                  <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Origin City Prespective" GridPane.rowIndex="1">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                  </StackedBarChart>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label text="Other Matrices">
-                           <font>
-                              <Font size="33.0" />
-                           </font>
-                        </Label>
+                        <BarChart maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="Nationality Prespective" GridPane.columnIndex="1">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Gender Prespective">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Origin City Prespective" GridPane.rowIndex="1">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Other Matrices">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
                      </children>
-                  </StackPane>
+                  </GridPane>
                </children>
-            </GridPane>
+            </HBox>
          </children>
-      </HBox>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+</StackPane>

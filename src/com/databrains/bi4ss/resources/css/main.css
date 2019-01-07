@@ -78,13 +78,18 @@
     -fx-cursor: hand
 }
 
-.tree-subject {
-    -fx-font-size: 13px;
+.combo {
+    -fx-font-size: 16px;
     -jfx-focus-color: #0f9d58;
     -jfx-unfocus-color: #777;
     -fx-prompt-text-fill: #333;
     -jfx-label-float: true;
     -fx-cursor: hand;
+}
+
+.lbl-link:hover {
+    -fx-cursor: hand;
+    -fx-underline: true
 }
 
 /* End Main LMD */
