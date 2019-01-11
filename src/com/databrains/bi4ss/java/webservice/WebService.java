@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WebService {
     // IP of server
-    private static final String HOST = "65b83e0d.ngrok.io";
+    private static final String HOST = "efb86db8.ngrok.io";
 
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
@@ -92,19 +92,17 @@ public class WebService {
         List<AdmisInfo> admisByGender = new LinkedList<>();
 
         admisByGender.add(new AdmisInfo("Famale",
-                Integer.parseInt(byNatJSONObject.getJSONObject("F").getString("Admis")),
-                Integer.parseInt(byNatJSONObject.getJSONObject("F").getString("Ajourné"))
+                Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Admis")),
+                Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Ajourné"))
         ));
         admisByGender.add(new AdmisInfo("Male",
-                Integer.parseInt(byNatJSONObject.getJSONObject("M").getString("Admis")),
-                Integer.parseInt(byNatJSONObject.getJSONObject("M").getString("Ajourné"))
+                Integer.parseInt(byGenderJSONObject.getJSONObject("M").getString("Admis")),
+                Integer.parseInt(byGenderJSONObject.getJSONObject("M").getString("Ajourné"))
         ));
-
         yearData.setAdmisGender(admisByGender);
 
         /* End Get (parse) data of Gender (admitted/adjourned) */
 
-        System.out.println(yearData);
         return yearData;
     }
 

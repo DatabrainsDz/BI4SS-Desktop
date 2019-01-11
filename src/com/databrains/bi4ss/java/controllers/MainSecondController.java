@@ -73,16 +73,20 @@ public class MainSecondController implements Initializable {
 
         YearData yearData = WebService.getYearData(Params.selectedYear);
 
+        if(yearData == null)
+            return;
+
         /* Start Gender perspective  bar chart */
 
         List<AdmisInfo> admisByGender = yearData.getAdmisGender();
-
-        for(AdmisInfo admisInfo : admisByGender) {
-            XYChart.Series xyGender = new XYChart.Series();
-            xyGender.setName(admisInfo.getName());
-            xyGender.getData().add(new XYChart.Data<>("Admitted", admisInfo.getAdmis()));
-            xyGender.getData().add(new XYChart.Data<>("Adjourned", admisInfo.getAjourne()));
-            chartBarGenderPres.getData().add(xyGender);
+        if (admisByGender != null) {
+            for (AdmisInfo admisInfo : admisByGender) {
+                XYChart.Series xyGender = new XYChart.Series();
+                xyGender.setName(admisInfo.getName());
+                xyGender.getData().add(new XYChart.Data<>("Admitted", admisInfo.getAdmis()));
+                xyGender.getData().add(new XYChart.Data<>("Adjourned", admisInfo.getAjourne()));
+                chartBarGenderPres.getData().add(xyGender);
+            }
         }
 
         /* End Gender perspective bar chart */
@@ -96,11 +100,12 @@ public class MainSecondController implements Initializable {
         seriesNonAdmisNat.setName("Adjouned");
 
         List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
-
-        // Data of chart
-        for(AdmisInfo admisInfo : admisByNationality) {
-            seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
-            seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+        if (admisByNationality != null) {
+            // Data of chart
+            for (AdmisInfo admisInfo : admisByNationality) {
+                seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+                seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+            }
         }
 
         chartStackedBarNatPres.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
@@ -116,11 +121,12 @@ public class MainSecondController implements Initializable {
         seriesNonAdmisCity.setName("Non AdmisInfo");
 
         List<AdmisInfo> admisByCity = yearData.getAdmisCity();
-
-        // Data of chart
-        for(AdmisInfo admisInfo : admisByCity) {
-            seriesAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
-            seriesNonAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+        if (admisByCity != null) {
+            // Data of chart
+            for (AdmisInfo admisInfo : admisByCity) {
+                seriesAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+                seriesNonAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+            }
         }
 
         chartStackedBarOriginCityPres.getData().addAll(seriesAdmisCity, seriesNonAdmisCity);
