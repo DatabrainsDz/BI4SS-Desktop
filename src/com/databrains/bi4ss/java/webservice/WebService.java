@@ -1,6 +1,7 @@
 package com.databrains.bi4ss.java.webservice;
 
 import com.databrains.bi4ss.java.models.AdmisInfo;
+import com.databrains.bi4ss.java.models.YearData;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -18,14 +19,14 @@ public class WebService {
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
         JSONObject jsonObject = getJSONFromServer(url);
-        if(jsonObject == null) {
+        if (jsonObject == null) {
             return null;
         }
         JSONArray jsonArray = jsonObject.getJSONArray("data");
 
         List<AdmisInfo> generalYearAdmisList = new LinkedList<>();
 
-        for(int i = 0; i < jsonArray.length(); i++) {
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObj = jsonArray.getJSONObject(i);
 
             AdmisInfo yearAdmis = new AdmisInfo();
@@ -39,8 +40,72 @@ public class WebService {
         return generalYearAdmisList;
     }
 
-    public static Object getYearData(int year) {
-        return null;
+    public static YearData getYearData(int year) {
+        String url = "years/" + year;
+        JSONObject rootObject = getJSONFromServer(url);
+        if (rootObject == null) {
+            return null;
+        }
+        JSONObject jsonObject = rootObject.getJSONObject("data");
+        //System.out.println(jsonObject);
+
+        YearData yearData = new YearData();
+
+        /* Start Get (parse) data of City (admitted/adjourned) */
+
+        JSONObject byCityJSONObject = jsonObject.getJSONObject("byCity");
+
+        List<AdmisInfo> admisByCities = new LinkedList<>();
+
+        for(String key : byCityJSONObject.keySet()) {
+            JSONObject jsonObj = byCityJSONObject.getJSONObject(key);
+            admisByCities.add(new AdmisInfo(key,
+                    Integer.parseInt(jsonObj.getString("Admis")),
+                    Integer.parseInt(jsonObj.getString("Ajourné"))
+            ));
+        }
+        yearData.setAdmisCity(admisByCities);
+
+        /* End Get (parse) data of City (admitted/adjourned) */
+
+        /* Start Get (parse) data of Nationality (admitted/adjourned) */
+
+        JSONObject byNatJSONObject = jsonObject.getJSONObject("byNationality");
+
+        List<AdmisInfo> admisByNationality = new LinkedList<>();
+
+        for(String key : byNatJSONObject.keySet()) {
+            JSONObject jsonObj = byNatJSONObject.getJSONObject(key);
+            admisByNationality.add(new AdmisInfo(key,
+                    Integer.parseInt(jsonObj.getString("Admis")),
+                    Integer.parseInt(jsonObj.getString("Ajourné"))
+            ));
+        }
+        yearData.setAdmisNationality(admisByNationality);
+
+        /* End Get (parse) data of Nationality (admitted/adjourned) */
+
+        /* Start Get (parse) data of Gender (admitted/adjourned) */
+
+        JSONObject byGenderJSONObject = jsonObject.getJSONObject("byGender");
+
+        List<AdmisInfo> admisByGender = new LinkedList<>();
+
+        admisByGender.add(new AdmisInfo("Famale",
+                Integer.parseInt(byNatJSONObject.getJSONObject("F").getString("Admis")),
+                Integer.parseInt(byNatJSONObject.getJSONObject("F").getString("Ajourné"))
+        ));
+        admisByGender.add(new AdmisInfo("Male",
+                Integer.parseInt(byNatJSONObject.getJSONObject("M").getString("Admis")),
+                Integer.parseInt(byNatJSONObject.getJSONObject("M").getString("Ajourné"))
+        ));
+
+        yearData.setAdmisGender(admisByGender);
+
+        /* End Get (parse) data of Gender (admitted/adjourned) */
+
+        System.out.println(yearData);
+        return yearData;
     }
 
     public static Object getLevelDataByAdmis(int year, String level) {
@@ -65,4 +130,7 @@ public class WebService {
         return jsonObject;
     }
 
+    public static void main(String[] args) {
+        getYearData(2014);
+    }
 }

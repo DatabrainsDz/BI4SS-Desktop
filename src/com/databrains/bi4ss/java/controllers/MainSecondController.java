@@ -1,7 +1,10 @@
 package com.databrains.bi4ss.java.controllers;
 
+import com.databrains.bi4ss.java.models.AdmisInfo;
+import com.databrains.bi4ss.java.models.YearData;
 import com.databrains.bi4ss.java.utils.Constants;
 import com.databrains.bi4ss.java.utils.Params;
+import com.databrains.bi4ss.java.webservice.WebService;
 import com.jfoenix.controls.JFXDialog;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainSecondController implements Initializable {
@@ -66,21 +70,20 @@ public class MainSecondController implements Initializable {
     }
 
     private void initCharts() {
+
+        YearData yearData = WebService.getYearData(Params.selectedYear);
+
         /* Start Gender perspective  bar chart */
 
-        XYChart.Series xyMale = new XYChart.Series();
-        XYChart.Series xyFamale = new XYChart.Series();
+        List<AdmisInfo> admisByGender = yearData.getAdmisGender();
 
-        xyMale.setName("Admis");
-        xyFamale.setName("No Admis");
-
-        xyMale.getData().add(new XYChart.Data<>("Admis", 25));
-        xyFamale.getData().add(new XYChart.Data<>("Admis", 30));
-
-        xyMale.getData().add(new XYChart.Data<>("Non Admis", 70));
-        xyFamale.getData().add(new XYChart.Data<>("Non Admis", 60));
-
-        chartBarGenderPres.getData().addAll(xyMale, xyFamale);
+        for(AdmisInfo admisInfo : admisByGender) {
+            XYChart.Series xyGender = new XYChart.Series();
+            xyGender.setName(admisInfo.getName());
+            xyGender.getData().add(new XYChart.Data<>("Admitted", admisInfo.getAdmis()));
+            xyGender.getData().add(new XYChart.Data<>("Adjourned", admisInfo.getAjourne()));
+            chartBarGenderPres.getData().add(xyGender);
+        }
 
         /* End Gender perspective bar chart */
 
@@ -89,15 +92,16 @@ public class MainSecondController implements Initializable {
         XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
 
-        seriesAdmisNat.setName("Admis");
-        seriesNonAdmisNat.setName("Non Admis");
+        seriesAdmisNat.setName("Admitted");
+        seriesNonAdmisNat.setName("Adjouned");
+
+        List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
 
         // Data of chart
-        seriesAdmisNat.getData().add(new XYChart.Data<String, Number>("Algerian", 60));
-        seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>("Algerian", 40));
-
-        seriesAdmisNat.getData().add(new XYChart.Data<String, Number>("Foreign", 40));
-        seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>("Foreign", 60));
+        for(AdmisInfo admisInfo : admisByNationality) {
+            seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+            seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+        }
 
         chartStackedBarNatPres.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
 
@@ -105,26 +109,21 @@ public class MainSecondController implements Initializable {
 
         /* Start Origin City perspective stacked bar chart */
 
-        XYChart.Series<String, Number> seriesAdmis = new XYChart.Series<>();
-        XYChart.Series<String, Number> seriesNonAdmis = new XYChart.Series<>();
+        XYChart.Series<String, Number> seriesAdmisCity = new XYChart.Series<>();
+        XYChart.Series<String, Number> seriesNonAdmisCity = new XYChart.Series<>();
 
-        seriesAdmis.setName("Admis");
-        seriesNonAdmis.setName("Non Admis");
+        seriesAdmisCity.setName("AdmisInfo");
+        seriesNonAdmisCity.setName("Non AdmisInfo");
+
+        List<AdmisInfo> admisByCity = yearData.getAdmisCity();
 
         // Data of chart
-        seriesAdmis.getData().add(new XYChart.Data<String, Number>("Tiaret", 200));
-        seriesNonAdmis.getData().add(new XYChart.Data<String, Number>("Tiaret", 400));
+        for(AdmisInfo admisInfo : admisByCity) {
+            seriesAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+            seriesNonAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+        }
 
-        seriesAdmis.getData().add(new XYChart.Data<String, Number>("Tissemsilet", 150));
-        seriesNonAdmis.getData().add(new XYChart.Data<String, Number>("Tissemsilet", 100));
-
-        seriesAdmis.getData().add(new XYChart.Data<String, Number>("Other wilaya", 30));
-        seriesNonAdmis.getData().add(new XYChart.Data<String, Number>("Other wilaya", 20));
-
-        seriesAdmis.getData().add(new XYChart.Data<String, Number>("Foreign", 60));
-        seriesNonAdmis.getData().add(new XYChart.Data<String, Number>("Foreign", 40));
-
-        chartStackedBarOriginCityPres.getData().addAll(seriesAdmis, seriesNonAdmis);
+        chartStackedBarOriginCityPres.getData().addAll(seriesAdmisCity, seriesNonAdmisCity);
 
         /* End Origin City perspective stacked bar chart */
 
