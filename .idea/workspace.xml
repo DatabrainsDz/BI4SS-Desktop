@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/images/home/support-staff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/images/home/teacher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BI4SS-Desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BI4SS-Desktop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/Launcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/home/support-staff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/home/teacher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/Home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainLMDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainLMDController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,34 +67,98 @@
     <session id="9529781">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.124" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.268" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.66" value="1" />
+          <entry key="project.open.time.73" value="1" />
+          <entry key="project.open.time.83" value="1" />
+          <entry key="project.open.time.86" value="1" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.open.time.94" value="1" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
-          <entry key="fxml" value="2" />
-          <entry key="java" value="4" />
+          <entry key="css" value="16" />
+          <entry key="fxml" value="38" />
+          <entry key="java" value="70" />
+          <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="2" />
-          <entry key="JAVA" value="4" />
+          <entry key="CSS" value="16" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="70" />
+          <entry key="XML" value="38" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="1402" />
+          <entry key="dummy" value="10" />
+          <entry key="fxml" value="95" />
+          <entry key="java" value="8475" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="1402" />
+          <entry key="JAVA" value="8475" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="XML" value="95" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1850998463">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.87" value="1" />
+          <entry key="project.open.time.93" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="" value="4" />
+          <entry key="class" value="1" />
+          <entry key="fxml" value="2" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="29" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="29" />
+          <entry key="JSON" value="4" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="25" />
-          <entry key="java" value="247" />
+          <entry key="" value="1" />
+          <entry key="dummy" value="4" />
+          <entry key="java" value="2688" />
+          <entry key="txt" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="247" />
-          <entry key="XML" value="25" />
+          <entry key="JAVA" value="2688" />
+          <entry key="JSON" value="1" />
+          <entry key="PLAIN_TEXT" value="34" />
         </counts>
       </usages-collector>
     </session>
@@ -100,46 +169,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
+        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="270">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#281#282#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
+                <element signature="method#getPastYearsData#0;class#WebService#0" />
+                <element signature="method#getYearData#0;class#WebService#0" />
+                <element signature="method#getJSONFromServer#0;class#WebService#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/home.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/HomeController.java">
+        <entry file="file://$PROJECT_DIR$/BI4SS-Desktop.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainSecondController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#MainSecondController#0" />
+                <element signature="method#initActionLevel#0;class#MainSecondController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Params.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -150,10 +224,23 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
+        <option value="Enum" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>xyC</find>
+      <find>dialogAbout</find>
+      <find>dialogQ</find>
+      <find>MouseEvent event</find>
+      <find>drawerMenu</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>xyAnalyse</replace>
+    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -166,10 +253,43 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/home.css" />
         <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/TeacherPart.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/TeacherDashboard.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/home.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/System.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/about.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/About.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/AboutController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Menu.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/CheckComboBox.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainLMD.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainLMD.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/TeacherDashboardController.java" />
         <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainStart.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainSecond.fxml" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/type/Subjects.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainLMDController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main-start.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main-second.css" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/SystemController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/GeneralYearAdmis.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisCity.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisNationality.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisGender.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/Admis.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/YearData.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainSecondController.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Params.java" />
       </list>
     </option>
   </component>
@@ -180,7 +300,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1386" />
@@ -197,6 +317,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,64 +331,10 @@
               <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,20 +347,23 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545856350478" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547225406187" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="D:/Learn/Jars/JavaFxLibs/fontawesomefx/fontawesomefx-weathericons-2.0.10-5.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Jars/REST Api/httpcomponents-asyncclient-4.1.4/lib/httpcore-nio-4.4.10.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\resources\images\home" />
+      <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\java" />
+      <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\java\controllers" />
       <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\resources\css" />
       <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\resources\views" />
+      <recent name="C:\Users\houar\Desktop\BI4SS-Desktop\src\com\databrains\bi4ss\resources\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -356,6 +427,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.databrains.bi4ss.java.webservice.WebService" />
+      <module name="BI4SS-Desktop" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.databrains.bi4ss.java.webservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -394,10 +479,12 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.WebService" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="Application.WebService" />
       </list>
     </recent_temporary>
   </component>
@@ -412,43 +499,72 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1545854381222" duration="1890000" />
+      <workItem from="1545854381222" duration="10209000" />
+      <workItem from="1545904387919" duration="2779000" />
+      <workItem from="1545928653868" duration="1103000" />
+      <workItem from="1545945233601" duration="499000" />
+      <workItem from="1546003713524" duration="168000" />
+      <workItem from="1546439801265" duration="23512000" />
+      <workItem from="1546506953583" duration="829000" />
+      <workItem from="1546785315317" duration="3273000" />
+      <workItem from="1546846468437" duration="4131000" />
+      <workItem from="1546867342693" duration="447000" />
+      <workItem from="1546871246986" duration="3026000" />
+      <workItem from="1546882460089" duration="13075000" />
+      <workItem from="1546902191992" duration="1214000" />
+      <workItem from="1546959124289" duration="226000" />
+      <workItem from="1547117553341" duration="5447000" />
+      <workItem from="1547215652228" duration="6497000" />
+      <workItem from="1547224380217" duration="1093000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixing Menu issue in showing">
+      <created>1546903349231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546903349231</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3192000" />
+    <option name="totallyTimeSpent" value="78830000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25339368" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21709532" />
+      <window_info id="Structure" order="1" weight="0.24962293" />
+      <window_info id="Favorites" order="2" weight="0.32980332" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32874617" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.49508196" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295082" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Event Log" order="12" weight="0.3295082" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32786885" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -456,10 +572,23 @@
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -467,80 +596,269 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Fixing Menu issue in showing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing Menu issue in showing" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/TeacherDashboard.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="378">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/images/databrains_logo.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.java">
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="288">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        <state relative-caret-position="112">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/about.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/About.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Home.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/CheckComboBox.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/Menu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/TeacherDashboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="252">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainSecond.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="43" column="88" selection-start-line="43" selection-start-column="88" selection-end-line="43" selection-end-column="88" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainLMD.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/type/Subjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="85" selection-start-line="5" selection-start-column="85" selection-end-line="5" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main-second.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/css/main-start.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/MainStart.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/System.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/SystemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="47" column="24" lean-forward="true" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#SystemController#0" />
+            <element signature="method#initMenu#0;class#SystemController#0" />
+            <element signature="e#3651#3767#0" />
+            <element signature="e#3904#4133#0" />
+            <element signature="e#4637#4691#0" />
+            <element signature="method#initActionInHomeView#0;class#SystemController#0" />
+            <element signature="e#5022#5500#0" />
+            <element signature="method#showHideMenu#0;class#SystemController#0" />
+            <element signature="method#initClock#0;class#SystemController#0" />
+            <element signature="e#6077#6267#0" />
+            <element signature="method#setNode#0;class#SystemController#0" />
+            <element signature="method#onShowSettings#0;class#SystemController#0" />
+            <element signature="e#6830#6845#0" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainLMDController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="204" column="38" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisNationality.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisGender.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/GeneralYearAdmis.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <element signature="method#initPastYearsChart#0;class#MainStartController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../../Jars/REST Api/unirest-java-1.4.9.jar!/com/mashape/unirest/request/BaseRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/YearData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="method#YearData#1;class#YearData#0" />
+            <element signature="method#toString#0;class#YearData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/AdmisInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Params.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainSecondController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+          <folding>
+            <element signature="method#initialize#0;class#MainSecondController#0" />
+            <element signature="method#initActionLevel#0;class#MainSecondController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+          <folding>
+            <element signature="method#getPastYearsData#0;class#WebService#0" />
+            <element signature="method#getYearData#0;class#WebService#0" />
+            <element signature="method#getJSONFromServer#0;class#WebService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BI4SS-Desktop.iml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
@@ -553,7 +871,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -609,7 +926,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jfoenix-8.0.1</last-edited>
+          <last-edited>commons-cli-1.2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

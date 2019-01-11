@@ -33,7 +33,7 @@ public class MainLMDController implements Initializable {
     @FXML
     private Label lblYear, lblLevel;
 
-    /* Radio Select Type view [Admis and not/Subject] */
+    /* Radio Select Type view [AdmisInfo and not/Subject] */
     @FXML
     private JFXRadioButton radioAdmisAndNot, radioSubject;
 
@@ -113,7 +113,7 @@ public class MainLMDController implements Initializable {
     }
 
     private void initRadio() {
-        /* Radio Of Category view [Admis and Not/Subject] */
+        /* Radio Of Category view [AdmisInfo and Not/Subject] */
         radioAdmisAndNot.setOnAction(e -> {
             gridAdmis.setVisible(true);
             gridSubject.setVisible(false);
@@ -158,18 +158,18 @@ public class MainLMDController implements Initializable {
         XYChart.Series xyAdmis = new XYChart.Series();
         XYChart.Series xyNoAdmis = new XYChart.Series();
 
-        xyAdmis.setName("Admis");
-        xyNoAdmis.setName("No Admis");
+        xyAdmis.setName("AdmisInfo");
+        xyNoAdmis.setName("No AdmisInfo");
 
         xyAdmis.getData().add(new XYChart.Data<>("", 70));
         xyNoAdmis.getData().add(new XYChart.Data<>("", 60));
 
         chartBarStudents.getData().addAll(xyAdmis, xyNoAdmis);
 
-        /* End Students Admis and Not Bar Chart */
+        /* End Students AdmisInfo and Not Bar Chart */
 
 
-        /* Start Admis and Not by City Pie Chart */
+        /* Start AdmisInfo and Not by City Pie Chart */
 
         // Data of Pie Chart
         ObservableList<PieChart.Data> dataAdmisCityChart = FXCollections.observableArrayList();
@@ -183,9 +183,9 @@ public class MainLMDController implements Initializable {
 
         chartPieNonAdmisCity.setData(dataAdmisCityChart);
 
-        /* End Student Admis and Not by City Chart */
+        /* End Student AdmisInfo and Not by City Chart */
 
-        /* Start Admis and Not by Gender Pie Chart */
+        /* Start AdmisInfo and Not by Gender Pie Chart */
 
         // Data of Pie Chart
         ObservableList<PieChart.Data> dataAdmisGenderChart = FXCollections.observableArrayList();
@@ -199,11 +199,11 @@ public class MainLMDController implements Initializable {
 
         chartPieNonAdmisGender.setData(dataAdmisGenderChart);
 
-        /* End Student Admis and Not by Gender Chart */
+        /* End Student AdmisInfo and Not by Gender Chart */
     }
 
     private void initChartsSubjects() {
-        /* Start Subject By Admis Gender Stacked Bar chart */
+        /* Start Subject By AdmisInfo Gender Stacked Bar chart */
         XYChart.Series<String, Number> seriesMale = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesFemale = new XYChart.Series<>();
 
@@ -217,7 +217,7 @@ public class MainLMDController implements Initializable {
 
         chartStackedBarSubjectByAdmisGender.getData().addAll(seriesMale, seriesFemale);
 
-        /* End Subject By Admis Gender Stacked Bar chart */
+        /* End Subject By AdmisInfo Gender Stacked Bar chart */
 
         /* Start Subject By City Stacked Bar chart */
 
