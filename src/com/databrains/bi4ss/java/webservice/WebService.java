@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WebService {
     // IP of server
-    private static final String HOST = "efb86db8.ngrok.io";
+    private static final String HOST = "192.168.43.90";
 
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
@@ -57,7 +57,7 @@ public class WebService {
 
         List<AdmisInfo> admisByCities = new LinkedList<>();
 
-        for(String key : byCityJSONObject.keySet()) {
+        for (String key : byCityJSONObject.keySet()) {
             JSONObject jsonObj = byCityJSONObject.getJSONObject(key);
             admisByCities.add(new AdmisInfo(key,
                     Integer.parseInt(jsonObj.getString("Admis")),
@@ -74,7 +74,7 @@ public class WebService {
 
         List<AdmisInfo> admisByNationality = new LinkedList<>();
 
-        for(String key : byNatJSONObject.keySet()) {
+        for (String key : byNatJSONObject.keySet()) {
             JSONObject jsonObj = byNatJSONObject.getJSONObject(key);
             admisByNationality.add(new AdmisInfo(key,
                     Integer.parseInt(jsonObj.getString("Admis")),
@@ -106,8 +106,70 @@ public class WebService {
         return yearData;
     }
 
-    public static Object getLevelDataByAdmis(int year, String level) {
-        return null;
+    public static YearData getLevelDataByAdmis(int year, String level) {
+        String url = "AdmittedAdjourned/" + year + "?current_year=" + level.charAt(level.length() - 1) +
+                "&level=" + level.substring(0, level.length() - 1);
+        JSONObject rootObject = getJSONFromServer(url);
+        if (rootObject == null) {
+            return null;
+        }
+        JSONObject jsonObject = rootObject.getJSONObject("data");
+
+        YearData yearData = new YearData();
+
+        /* Start Get (parse) data of City (admitted/adjourned) */
+
+        JSONObject byCityJSONObject = jsonObject.getJSONObject("byCity");
+
+        List<AdmisInfo> admisByCities = new LinkedList<>();
+
+        for (String key : byCityJSONObject.keySet()) {
+            JSONObject jsonObj = byCityJSONObject.getJSONObject(key);
+            admisByCities.add(new AdmisInfo(key,
+                    Integer.parseInt(jsonObj.getString("Admis")),
+                    Integer.parseInt(jsonObj.getString("Ajourné"))
+            ));
+        }
+        yearData.setAdmisCity(admisByCities);
+
+        /* End Get (parse) data of City (admitted/adjourned) */
+
+        /* Start Get (parse) data of Nationality (admitted/adjourned) */
+
+        JSONObject byNatJSONObject = jsonObject.getJSONObject("byNationality");
+
+        List<AdmisInfo> admisByNationality = new LinkedList<>();
+
+        for (String key : byNatJSONObject.keySet()) {
+            JSONObject jsonObj = byNatJSONObject.getJSONObject(key);
+            admisByNationality.add(new AdmisInfo(key,
+                    Integer.parseInt(jsonObj.getString("Admis")),
+                    Integer.parseInt(jsonObj.getString("Ajourné"))
+            ));
+        }
+        yearData.setAdmisNationality(admisByNationality);
+
+        /* End Get (parse) data of Nationality (admitted/adjourned) */
+
+        /* Start Get (parse) data of Gender (admitted/adjourned) */
+
+        JSONObject byGenderJSONObject = jsonObject.getJSONObject("byGender");
+
+        List<AdmisInfo> admisByGender = new LinkedList<>();
+
+        admisByGender.add(new AdmisInfo("Famale",
+                Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Admis")),
+                Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Ajourné"))
+        ));
+        admisByGender.add(new AdmisInfo("Male",
+                Integer.parseInt(byGenderJSONObject.getJSONObject("M").getString("Admis")),
+                Integer.parseInt(byGenderJSONObject.getJSONObject("M").getString("Ajourné"))
+        ));
+        yearData.setAdmisGender(admisByGender);
+
+        /* End Get (parse) data of Gender (admitted/adjourned) */
+
+        return yearData;
     }
 
     public static Object getLevelDataBySubjects(int year, String level) {
@@ -128,7 +190,4 @@ public class WebService {
         return jsonObject;
     }
 
-    public static void main(String[] args) {
-        getYearData(2014);
-    }
 }
