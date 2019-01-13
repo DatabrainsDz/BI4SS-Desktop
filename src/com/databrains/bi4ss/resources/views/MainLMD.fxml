@@ -2,12 +2,11 @@
 
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -67,23 +66,33 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <BarChart fx:id="chartBarStudents" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-chart" title="1LMD Students">
+                        <StackedBarChart fx:id="chartStackedAdmisNationality" styleClass="cards-chart" title="Nationality">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart fx:id="chartStackedAdmisCity" styleClass="cards-chart" title="City" GridPane.columnIndex="1">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart fx:id="chartStackedAdmisGender" styleClass="cards-chart" title="Gender" GridPane.rowIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis side="LEFT" />
                           </yAxis>
-                        </BarChart>
-                        <PieChart fx:id="chartPieNonAdmisCity" styleClass="cards-chart" title="Non Admis" GridPane.columnIndex="1" />
-                        <PieChart fx:id="chartPieNonAdmisGender" styleClass="cards-chart" title="Non Admis" GridPane.rowIndex="1" />
+                        </StackedBarChart>
                         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <Label text="Other Matrices">
-                                 <font>
-                                    <Font size="33.0" />
-                                 </font>
-                              </Label>
+                              <JFXTreeTableView maxHeight="-Infinity" maxWidth="-Infinity" />
                            </children>
                         </StackPane>
                      </children>

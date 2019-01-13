@@ -1,8 +1,11 @@
 package com.databrains.bi4ss.java.controllers;
 
+import com.databrains.bi4ss.java.models.AdmisInfo;
+import com.databrains.bi4ss.java.models.YearData;
 import com.databrains.bi4ss.java.type.Subjects;
 import com.databrains.bi4ss.java.utils.Constants;
 import com.databrains.bi4ss.java.utils.Params;
+import com.databrains.bi4ss.java.webservice.WebService;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.beans.binding.Bindings;
@@ -25,6 +28,7 @@ import org.controlsfx.control.CheckTreeView;
 
 import javax.security.auth.Subject;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainLMDController implements Initializable {
@@ -33,7 +37,7 @@ public class MainLMDController implements Initializable {
     @FXML
     private Label lblYear, lblLevel;
 
-    /* Radio Select Type view [AdmisInfo and not/Subject] */
+    /* Radio Select Type view [Admis and not/Subject] */
     @FXML
     private JFXRadioButton radioAdmisAndNot, radioSubject;
 
@@ -51,9 +55,7 @@ public class MainLMDController implements Initializable {
 
     /* Charts of admis and Not */
     @FXML
-    private BarChart chartBarStudents;
-    @FXML
-    private PieChart chartPieNonAdmisCity, chartPieNonAdmisGender;
+    private StackedBarChart chartStackedAdmisNationality, chartStackedAdmisCity, chartStackedAdmisGender;
 
     /* Charts of Subject */
     @FXML
@@ -153,53 +155,69 @@ public class MainLMDController implements Initializable {
     }
 
     private void initChartsAdmisAndNot() {
-        /* Start Students Bar Chart */
+        // Get data from server
+        YearData yearData = WebService.getLevelDataByAdmis(Params.selectedYear, Params.selectedLevel);
 
-        XYChart.Series xyAdmis = new XYChart.Series();
-        XYChart.Series xyNoAdmis = new XYChart.Series();
+        /* Start by Nationality Stacked Bar Chart */
+        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
 
-        xyAdmis.setName("AdmisInfo");
-        xyNoAdmis.setName("No AdmisInfo");
+        /* End by Nationality Stacked Bar Chart */
 
-        xyAdmis.getData().add(new XYChart.Data<>("", 70));
-        xyNoAdmis.getData().add(new XYChart.Data<>("", 60));
+        XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
+        XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
 
-        chartBarStudents.getData().addAll(xyAdmis, xyNoAdmis);
+        seriesAdmisNat.setName("Admitted");
+        seriesNonAdmisNat.setName("Adjouned");
 
-        /* End Students AdmisInfo and Not Bar Chart */
+        List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
+        if (admisByNationality != null) {
+            // Data of chart
+            for (AdmisInfo admisInfo : admisByNationality) {
+                seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+                seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+            }
+        }
+
+        chartStackedAdmisNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
 
 
-        /* Start AdmisInfo and Not by City Pie Chart */
+        /* Start by City Stacked Bar Chart */
+        List<AdmisInfo> dataCity= yearData.getAdmisCity();
 
-        // Data of Pie Chart
-        ObservableList<PieChart.Data> dataAdmisCityChart = FXCollections.observableArrayList();
-        dataAdmisCityChart.add(new PieChart.Data("Tiaret", 120));
-        dataAdmisCityChart.add(new PieChart.Data("Tissemsilet", 70));
-        dataAdmisCityChart.forEach(d
-                        -> d.nameProperty().bind(
-                Bindings.concat((d.pieValueProperty() + "").replaceFirst(".*?(\\d+).*", "$1"), " ", d.getName())
-                )
-        );
+        /* End by City Stacked Bar Chart */
 
-        chartPieNonAdmisCity.setData(dataAdmisCityChart);
+        XYChart.Series<String, Number> seriesAdmisCity = new XYChart.Series<>();
+        XYChart.Series<String, Number> seriesNonAdmisCity = new XYChart.Series<>();
 
-        /* End Student AdmisInfo and Not by City Chart */
+        seriesAdmisCity.setName("AdmisInfo");
+        seriesNonAdmisCity.setName("Non AdmisInfo");
 
-        /* Start AdmisInfo and Not by Gender Pie Chart */
+        List<AdmisInfo> admisByCity = yearData.getAdmisCity();
+        if (admisByCity != null) {
+            // Data of chart
+            for (AdmisInfo admisInfo : admisByCity) {
+                seriesAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+                seriesNonAdmisCity.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+            }
+        }
 
-        // Data of Pie Chart
-        ObservableList<PieChart.Data> dataAdmisGenderChart = FXCollections.observableArrayList();
-        dataAdmisGenderChart.add(new PieChart.Data("Male", 120));
-        dataAdmisGenderChart.add(new PieChart.Data("Famale", 190));
-        dataAdmisGenderChart.forEach(d
-                        -> d.nameProperty().bind(
-                Bindings.concat((d.pieValueProperty() + "").replaceFirst(".*?(\\d+).*", "$1"), " ", d.getName())
-                )
-        );
+        chartStackedAdmisCity.getData().addAll(seriesAdmisCity, seriesNonAdmisCity);
 
-        chartPieNonAdmisGender.setData(dataAdmisGenderChart);
+        /* Start by Gender Stacked Bar Chart */
 
-        /* End Student AdmisInfo and Not by Gender Chart */
+        List<AdmisInfo> admisByGender = yearData.getAdmisGender();
+        if (admisByGender != null) {
+            for (AdmisInfo admisInfo : admisByGender) {
+                XYChart.Series xyGender = new XYChart.Series();
+                xyGender.setName(admisInfo.getName());
+                xyGender.getData().add(new XYChart.Data<>("Admitted", admisInfo.getAdmis()));
+                xyGender.getData().add(new XYChart.Data<>("Adjourned", admisInfo.getAjourne()));
+                chartStackedAdmisGender.getData().add(xyGender);
+            }
+        }
+
+        /* End by Gender Stacked Bar Chart */
+
     }
 
     private void initChartsSubjects() {
