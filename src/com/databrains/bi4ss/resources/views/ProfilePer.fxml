@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.emojione.EmojiOneView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane style="-fx-background-color: #FFF;" stylesheets="@../css/profile-per.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.ProfilePerController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="1000.0" spacing="30.0">
+         <children>
+            <Label styleClass="title" text="Profile Prespective" />
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" spacing="50.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="367.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home/support-staff.png" />
+                     </image>
+                  </ImageView>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="lbl-gender" text="Gender" />
+                              <JFXRadioButton fx:id="radioMale" selected="true" styleClass="field" text="Male">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tglGroupGender" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="radioFemale" styleClass="field" text="Famale" toggleGroup="$tglGroupGender" />
+                           </children>
+                        </HBox>
+                        <JFXToggleButton fx:id="tglIsAlgerienne" text="Is Algerienne ?" />
+                        <JFXTextField fx:id="fieldNumCity" promptText="N° City" styleClass="field" />
+                        <JFXTextField fx:id="fieldBacAverage" promptText="Bac Average" styleClass="field" />
+                        <JFXTextField fx:id="fieldAge" promptText="Age" styleClass="field" />
+                        <JFXButton buttonType="RAISED" maxWidth="1.7976931348623157E308" onMouseClicked="#onCalc" styleClass="btn" text="Calculate">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="imgResult" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="lblResult" styleClass="lbl-result" text="Success !" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+      <EmojiOneView glyphName="X" onMouseClicked="#onClose" size="20" styleClass="icon-close" wrappingWidth="14.0" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="15.0" top="10.0" />
+         </StackPane.margin>
+      </EmojiOneView>
+   </children>
+</StackPane>
