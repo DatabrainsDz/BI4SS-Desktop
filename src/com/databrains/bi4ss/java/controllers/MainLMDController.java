@@ -3,30 +3,18 @@ package com.databrains.bi4ss.java.controllers;
 import com.databrains.bi4ss.java.models.AdmisInfo;
 import com.databrains.bi4ss.java.models.YearData;
 import com.databrains.bi4ss.java.type.Subjects;
-import com.databrains.bi4ss.java.utils.Constants;
 import com.databrains.bi4ss.java.utils.Params;
 import com.databrains.bi4ss.java.webservice.WebService;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
-import javafx.beans.binding.Bindings;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import com.sun.org.apache.xalan.internal.lib.ExsltDatetime;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.CheckBoxTreeItem;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.TreeItem;
 import javafx.scene.layout.GridPane;
-import org.controlsfx.control.CheckComboBox;
-import org.controlsfx.control.CheckTreeView;
 
-import javax.security.auth.Subject;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -157,6 +145,8 @@ public class MainLMDController implements Initializable {
     private void initChartsAdmisAndNot() {
         // Get data from server
         YearData yearData = WebService.getLevelDataByAdmis(Params.selectedYear, Params.selectedLevel);
+        if(yearData == null)
+            return;
 
         /* Start by Nationality Stacked Bar Chart */
         List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
@@ -221,7 +211,7 @@ public class MainLMDController implements Initializable {
     }
 
     private void initChartsSubjects() {
-        /* Start Subject By AdmisInfo Gender Stacked Bar chart */
+        /* Start Subject By Admis Gender Stacked Bar chart */
         XYChart.Series<String, Number> seriesMale = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesFemale = new XYChart.Series<>();
 
@@ -235,7 +225,7 @@ public class MainLMDController implements Initializable {
 
         chartStackedBarSubjectByAdmisGender.getData().addAll(seriesMale, seriesFemale);
 
-        /* End Subject By AdmisInfo Gender Stacked Bar chart */
+        /* End Subject By Admis Gender Stacked Bar chart */
 
         /* Start Subject By City Stacked Bar chart */
 

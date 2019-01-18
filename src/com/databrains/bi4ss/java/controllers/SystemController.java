@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.StackedBarChart;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -61,7 +62,7 @@ public class SystemController implements Initializable {
     private AnchorPane homeView;
 
     // For show Settings/About Dialog
-    public static JFXDialog dialogSettings, dialogAbout;
+    public static JFXDialog dialogSettings, dialogAbout, dialogProfilePer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,6 +80,14 @@ public class SystemController implements Initializable {
         try {
             AnchorPane aboutView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/About.fxml"));
             dialogAbout = new JFXDialog(root, aboutView, JFXDialog.DialogTransition.TOP);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        // Init Dialog Profile Perspective
+        try {
+            StackPane profileView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/ProfilePer.fxml"));
+            dialogProfilePer = new JFXDialog(root, profileView, JFXDialog.DialogTransition.CENTER);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -149,6 +158,9 @@ public class SystemController implements Initializable {
             });
 
         }
+
+        ((StackedBarChart) ((HBox) mainStartView.getChildren().get(0)).getChildren().get(0))
+                .setOnMouseClicked(e -> dialogProfilePer.show());
     }
 
     private void showHideMenu() {

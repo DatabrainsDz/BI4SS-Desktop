@@ -117,8 +117,8 @@ public class MainSecondController implements Initializable {
         XYChart.Series<String, Number> seriesAdmisCity = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisCity = new XYChart.Series<>();
 
-        seriesAdmisCity.setName("AdmisInfo");
-        seriesNonAdmisCity.setName("Non AdmisInfo");
+        seriesAdmisCity.setName("Admis");
+        seriesNonAdmisCity.setName("Non Admis");
 
         List<AdmisInfo> admisByCity = yearData.getAdmisCity();
         if (admisByCity != null) {

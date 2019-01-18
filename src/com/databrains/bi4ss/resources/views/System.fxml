@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="root" stylesheets="@../css/system.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.SystemController">
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.SystemController">
    <children>
       <VBox prefHeight="690.0" prefWidth="1200.0">
          <children>
@@ -49,4 +50,8 @@
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@../css/system.css" />
+      <URL value="@../css/material-color.css" />
+   </stylesheets>
 </StackPane>

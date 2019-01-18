@@ -4,6 +4,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="620.0" stylesheets="@../css/about.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.AboutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.AboutController">
    <children>
       <VBox fillWidth="false" layoutX="39.0" layoutY="65.0" prefHeight="352.0" prefWidth="514.0">
          <children>
@@ -90,4 +91,8 @@
       <Label layoutX="211.0" layoutY="7.0" prefHeight="53.0" prefWidth="170.0" styleClass="header-title" text="About Us" />
       <EmojiOneView glyphName="X" layoutX="592.0" layoutY="31.0" onMouseClicked="#btnClose" size="20" styleClass="icon-close" wrappingWidth="14.0" />
    </children>
+   <stylesheets>
+      <URL value="@../css/about.css" />
+      <URL value="@../css/material-color.css" />
+   </stylesheets>
 </AnchorPane>

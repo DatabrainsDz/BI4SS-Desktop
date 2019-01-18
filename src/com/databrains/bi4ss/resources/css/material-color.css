@@ -1,0 +1,61 @@
+.root {
+    /* old color: #2196f3, #694A97 / -unique, -pink / -primary, -mint*/
+    -base      : -deep-purple;
+    -base2     : -secondary;
+
+    -primary   : #4285f4;
+    -info      : #33B5E5;
+    -success   : #02C852;
+    -warning   : #FF8800;
+    -danger    : #FF3547;
+    -secondary : #AA66CC;
+    -unique    : #880E4F;
+    -elegant   : #2E2E2E;
+
+    /* Theme */
+    -brown       : #795548;
+    -red         : -danger;
+    -grapefruit  : #ED5565;
+    -bittersweet : #FC6E51;
+    -deep-orange : #FF7043;
+    -orange      : -warning;
+    -amber       : #FFA000;
+    -sunflower   : #FFCE54;
+    -yellow      : #ffeb3b;
+    -lime        : #cddc39;
+    -grass       : #A0D468;
+    -green       : -success;
+    -mint        : #48CFAD;
+    -teal        : -base;
+    -cyan        : #00BCD4;
+    -aqua        : #4FC1E9;
+    -blue-jeans  : #5D9CEC;
+    -blue        : -primary;
+    -indigo      : #3F51B5;
+    -purple      : -secondary;
+    -deep-purple : #512DA8;
+    -lavander    : #AC92EC;
+    -pink        : #EC407A;
+    -pink-rose   : #EC87C0;
+    -light-gray  : #E6E9ED;
+    -medium-gray : #AAB2BD;
+    -dark-gray   : #656D78;
+    -blue-gray   :  #78909C;
+    -gray : #8e8e8e;
+    -light-green : #8BC34A;
+    -light-blue  : #82B1FF;
+}
+
+.root {
+    -fx-font-family: tahoma;
+}
+
+/* Start change color of bar char */
+
+.default-color0.chart-bar {-fx-bar-fill: -success;}
+.default-color1.chart-bar {-fx-bar-fill: -danger;}
+.default-color3.chart-bar {-fx-bar-fill: -warning;}
+.default-color2.chart-bar {-fx-bar-fill: -primary;}
+.default-color4.chart-bar {-fx-bar-fill: -info;}
+
+/* Start change color of bar char */

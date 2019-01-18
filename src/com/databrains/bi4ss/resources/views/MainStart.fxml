@@ -86,6 +86,6 @@
    </padding>
    <stylesheets>
       <URL value="@../css/main.css" />
-      <URL value="@../css/main-start.css" />
+      <URL value="@../css/material-color.css" />
    </stylesheets>
 </StackPane>

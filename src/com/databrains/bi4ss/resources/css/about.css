@@ -1,5 +1,5 @@
 .header-title {
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
     -fx-font-family: Tahoma;
     -fx-font-size: 36px;
 }
@@ -9,19 +9,9 @@
 }
 
 .label-info:hover {
-    -fx-text-fill: #242A39;
-    -fx-font-size: 20px
-    
-}
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
 
-.font-about {
-    -fx-fill: #333
 }
-
-.font-about:hover {
-    -fx-fill: #2196f3
-}
-
 
 /* Start icon style */
 
@@ -54,7 +44,7 @@
 }
 
 .icon-google:hover {
-    -fx-fill: #D00;
+    -fx-fill: -danger;
 }
 
 .icon-insta:hover {
@@ -65,10 +55,11 @@
 
 .label-bottom {
     -fx-font-size: 20px;
+    -fx-text-fill: #333;
     -fx-font-family: "Comic Sans MS";   
 }
 
 .icon-close:hover {
     -fx-cursor: hand;
-    -fx-fill: #FF3D22
+    -fx-fill: -danger
 }

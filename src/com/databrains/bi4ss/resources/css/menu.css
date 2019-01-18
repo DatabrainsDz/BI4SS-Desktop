@@ -1,24 +1,25 @@
-* {
-    -fx-font-family: tahoma arial;
+.root {
+    -fx-background-color: #EEE;
 }
 
 .btn {
     -fx-pref-height: 50px;
     -fx-font-size: 18px;
     -fx-background-color: #FFF;
-    -fx-text-fill: #555
+    -fx-text-fill: -dark-gray;
 }
 
 .btn:hover {
     -fx-background-color: #EEE;
     -fx-border-width: 0 0 0 4px;
-    -fx-border-color: #2196f3;
+    -fx-border-color: -base;
     -fx-border-style: solid;
-    -fx-text-fill: #000
+    -fx-text-fill: -base;
+    -fx-cursor: hand;
 }
-
-.btn:hover {-fx-cursor: hand}
-
 .icon {
     -fx-fill: #666
+}
+.icon:hover {
+    -fx-fill: -base
 }

@@ -7,14 +7,18 @@
 }
 
 .title {
-    -fx-font-family: tahoma;
     -fx-font-size: 28px;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
 }
 
 .txt-desc {
     -fx-font-size: 16px;
     -fx-fill: #666
+}
+
+.jfx-radio-button {
+    -jfx-selected-color: -base;
+    -jfx-unselected-color: #777;
 }
 
 /* Start select year part */
@@ -41,7 +45,7 @@
     -fx-font-family: "Comic Sans MS";
     -fx-font-size: 26px;
     -fx-font-weight: bold;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
 }
 
 /* End select year part */
@@ -65,7 +69,7 @@
     -fx-font-family: arial;
     -fx-font-size: 22px;
     -fx-font-weight: bold;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #2196f3 0%, #694A97 100%);
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
     -fx-opacity: 0.9;
 }
 
@@ -80,7 +84,7 @@
 
 .combo {
     -fx-font-size: 16px;
-    -jfx-focus-color: #0f9d58;
+    -jfx-focus-color: -base;
     -jfx-unfocus-color: #777;
     -fx-prompt-text-fill: #333;
     -jfx-label-float: true;
