@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="640.0" prefWidth="1200.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainLMDController">
+   <children>
+      <StackPane>
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <Label fx:id="lblYear" text="2015 Year">
+                     <styleClass>
+                        <String fx:value="title" />
+                        <String fx:value="lbl-link" />
+                     </styleClass>
+                  </Label>
+                  <Label styleClass="title" text="&gt;" />
+                  <Label fx:id="lblLevel" styleClass="title" text="Licence 1" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <HBox alignment="CENTER_LEFT" spacing="40.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <JFXRadioButton fx:id="radioAdmisAndNot" maxWidth="1.7976931348623157E308" selected="true" styleClass="lmd-radio" text="Admis and Not">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tglAdmisSubject" />
+                     </toggleGroup></JFXRadioButton>
+                  <JFXRadioButton fx:id="radioSubject" maxWidth="1.7976931348623157E308" styleClass="lmd-radio" text="Subjects" toggleGroup="$tglAdmisSubject" />
+                  <JFXComboBox fx:id="comboSubject" maxWidth="1.7976931348623157E308" prefWidth="160.0" promptText="Selected Subject" styleClass="combo" visible="false">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+               </children>
+            </VBox>
+            <StackPane>
+               <children>
+                  <GridPane fx:id="gridAdmis" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <StackedBarChart fx:id="chartStackedAdmisNationality" styleClass="cards-chart" title="Nationality">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart fx:id="chartStackedAdmisCity" styleClass="cards-chart" title="City" GridPane.columnIndex="1">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart fx:id="chartStackedAdmisGender" styleClass="cards-chart" title="Gender" GridPane.rowIndex="1">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <JFXTreeTableView maxHeight="-Infinity" maxWidth="-Infinity" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridSubject" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="10.0" visible="false">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <StackedBarChart fx:id="chartStackedBarSubjectByAdmisGender" styleClass="cards-chart" title="Subject by Admis Gender">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                        <StackedBarChart fx:id="chartStackedBarSubjectByCity" styleClass="cards-chart" title="Subject by City" GridPane.columnIndex="1">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-chart" GridPane.rowIndex="1">
+                           <children>
+                              <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="More matrices for TD, TP &amp; Exam" textAlignment="CENTER" wrappingWidth="288.462890625">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-chart" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Association rule between subjects" textAlignment="CENTER" wrappingWidth="288.462890625">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="1160.0">
+         <children>
+            <JFXRadioButton fx:id="radioFull" selected="true" styleClass="lmd-radio" text="Full Year">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tglSemester" />
+               </toggleGroup></JFXRadioButton>
+            <JFXRadioButton fx:id="radioSemesterOne" styleClass="lmd-radio" text="Semester One" toggleGroup="$tglSemester" />
+            <JFXRadioButton fx:id="radioSemesterTwo" styleClass="lmd-radio" text="Semester Two" toggleGroup="$tglSemester" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@../css/main.css" />
+      <URL value="@../css/material-color.css" />
+   </stylesheets>
+</VBox>

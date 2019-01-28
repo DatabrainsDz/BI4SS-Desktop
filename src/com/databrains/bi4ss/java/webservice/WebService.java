@@ -177,6 +177,7 @@ public class WebService {
     }
 
     private static JSONObject getJSONFromServer(String url) {
+        if(true) return null;
         JSONObject jsonObject = null;
         try {
             HttpResponse<JsonNode> jsonResponse
@@ -188,6 +189,26 @@ public class WebService {
             ue.printStackTrace();
         }
         return jsonObject;
+    }
+
+    public static boolean getPredictionProfil(char algo,char gender,char nationality,String city, double bac , int age) {
+        String url = "http://" + HOST +"profile/" + algo+"/" +gender+"/" +nationality+"/" +city+"/" +bac+"/" +age;
+        JSONObject rootObject = null;
+        try {
+            HttpResponse<JsonNode> jsonResponse
+                    = Unirest.get( url)
+                    .asJson();
+
+            rootObject = new JSONObject(jsonResponse.getBody().toString());
+        } catch (UnirestException ue) {
+            ue.printStackTrace();
+        }
+
+        if (rootObject == null) {
+            return false;
+        }
+
+        return (rootObject.getInt("prediction")==1);
     }
 
 }

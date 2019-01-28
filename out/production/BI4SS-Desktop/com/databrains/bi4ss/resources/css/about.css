@@ -1,0 +1,65 @@
+.header-title {
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
+    -fx-font-family: Tahoma;
+    -fx-font-size: 36px;
+}
+
+.label-info {
+    -fx-font-size: 18px
+}
+
+.label-info:hover {
+    -fx-text-fill: linear-gradient(to left, -base, -base2);
+
+}
+
+/* Start icon style */
+
+.font-social-media {
+    -fx-fill: #666
+}
+
+.font-social-media:hover {
+    -fx-cursor: hand
+}
+
+.icon-github:hover {
+    -fx-fill: #D0E;
+}
+
+.icon-fb:hover {
+    -fx-fill: #2196f3;
+}
+
+.icon-yt:hover {
+    -fx-fill: #D00;
+}
+
+.icon-in:hover {
+    -fx-fill: #2196f3;
+}
+
+.icon-tw:hover {
+    -fx-fill: #2196f3;
+}
+
+.icon-google:hover {
+    -fx-fill: -danger;
+}
+
+.icon-insta:hover {
+    -fx-fill: #080
+}
+
+/* End icon style */
+
+.label-bottom {
+    -fx-font-size: 20px;
+    -fx-text-fill: #333;
+    -fx-font-family: "Comic Sans MS";   
+}
+
+.icon-close:hover {
+    -fx-cursor: hand;
+    -fx-fill: -danger
+}
