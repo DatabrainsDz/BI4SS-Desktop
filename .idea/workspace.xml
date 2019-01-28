@@ -2,14 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Adding profile perspective view">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/ProfilePerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/ProfilePerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/Profile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Params.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/utils/Params.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/ProfilePer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/databrains/bi4ss/resources/views/ProfilePer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/Launcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/AboutController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/MainLMDController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/MainSecondController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/MainStartController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/MainStartController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/MainStartController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/ProfilePerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/controllers/SystemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/models/AdmisInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/models/Profile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/models/YearData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/type/Subjects.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/utils/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/utils/Params.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/java/webservice/WebService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/about.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/material-color.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/profile-per.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/css/system.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/databrains_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/home/support-staff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/home/teacher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/profiles/failureImage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/profiles/studentFemale.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/profiles/studentMale.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/images/profiles/successImage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/About.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/Home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/MainLMD.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/MainSecond.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/MainStart.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/Menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/ProfilePer.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BI4SS-Desktop/com/databrains/bi4ss/resources/views/System.fxml" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,7 +183,7 @@
           <entry key="CSS" value="76" />
           <entry key="Font" value="4" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="95" />
+          <entry key="JAVA" value="96" />
           <entry key="JSON" value="4" />
           <entry key="XML" value="20" />
         </counts>
@@ -180,7 +212,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -192,14 +224,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/ProfilePerController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
-              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+              <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding>
                 <element signature="method#initialize#0;class#ProfilePerController#0" />
-                <element signature="method#onCalc#0;class#ProfilePerController#0" />
               </folding>
             </state>
           </provider>
@@ -345,29 +376,6 @@
               <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BI4SS-Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BI4SS-Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bi4ss" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -395,7 +403,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548668877746" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548668945226" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/BI4SS-Desktop-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -595,7 +603,7 @@
       <workItem from="1547822830958" duration="9268000" />
       <workItem from="1547839141004" duration="526000" />
       <workItem from="1548172899426" duration="40000" />
-      <workItem from="1548665988678" duration="2779000" />
+      <workItem from="1548665988678" duration="3128000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing Menu issue in showing">
       <created>1546903349231</created>
@@ -615,7 +623,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115372000" />
+    <option name="totallyTimeSpent" value="115721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,7 +636,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27458397" />
       <window_info id="Structure" order="1" weight="0.24962293" />
@@ -946,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-          <folding>
-            <element signature="method#displayLabelForData#0;class#MainStartController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/webservice/WebService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -978,16 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="20" column="98" selection-start-line="20" selection-start-column="98" selection-end-line="20" selection-end-column="98" />
-          <folding>
-            <element signature="method#centerOnScreen#0;class#Launcher#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/models/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -998,10 +985,29 @@
     <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/ProfilePerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
           <folding>
             <element signature="method#initialize#0;class#ProfilePerController#0" />
-            <element signature="method#onCalc#0;class#ProfilePerController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/controllers/MainStartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding>
+            <element signature="method#displayLabelForData#0;class#MainStartController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/databrains/bi4ss/java/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="20" column="98" selection-start-line="20" selection-start-column="98" selection-end-line="20" selection-end-column="98" />
+          <folding>
+            <element signature="method#centerOnScreen#0;class#Launcher#0" />
           </folding>
         </state>
       </provider>
