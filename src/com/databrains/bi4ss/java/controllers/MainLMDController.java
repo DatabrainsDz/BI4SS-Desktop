@@ -47,7 +47,7 @@ public class MainLMDController implements Initializable {
 
     /* Charts of Subject */
     @FXML
-    private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity;
+    private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity,chartStackedBarSubjectByNationality;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,7 +131,7 @@ public class MainLMDController implements Initializable {
         // Set the data (subjects) to the comboBox
         switch (Params.selectedLevel) {
             case "MIAS1":
-                    comboSubject.getItems().addAll(Subjects.LICENCE1);
+                comboSubject.getItems().addAll(Subjects.LICENCE1);
                 break;
             case "MIAS2":
                 comboSubject.getItems().addAll(Subjects.LICENCE2);
@@ -145,7 +145,7 @@ public class MainLMDController implements Initializable {
     private void initChartsAdmisAndNot() {
         // Get data from server
         YearData yearData = WebService.getLevelDataByAdmis(Params.selectedYear, Params.selectedLevel);
-        if(yearData == null)
+        if (yearData == null)
             return;
 
         /* Start by Nationality Stacked Bar Chart */
@@ -172,7 +172,7 @@ public class MainLMDController implements Initializable {
 
 
         /* Start by City Stacked Bar Chart */
-        List<AdmisInfo> dataCity= yearData.getAdmisCity();
+        List<AdmisInfo> dataCity = yearData.getAdmisCity();
 
         /* End by City Stacked Bar Chart */
 
@@ -211,40 +211,73 @@ public class MainLMDController implements Initializable {
     }
 
     private void initChartsSubjects() {
-        /* Start Subject By Admis Gender Stacked Bar chart */
+        char semesterFlag = '2';
+        if (radioFull.isSelected()) semesterFlag = '?';
+        else if (radioSemesterOne.isSelected()) semesterFlag = '1';
+
+        YearData yearData = WebService.getLevelDataBySubjects(Params.selectedYear, Params.selectedLevel, semesterFlag);
+        if(yearData == null) {
+            System.out.println("Returned null");
+            return;
+        }
+
+        /* Start Subject By AdmisInfo Gender Stacked Bar chart */
+        List<AdmisInfo> byGenderList = yearData.getAdmisGender();
         XYChart.Series<String, Number> seriesMale = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesFemale = new XYChart.Series<>();
 
         seriesMale.setName("Male");
         seriesFemale.setName("Female");
-
-        for (String subject : Subjects.LICENCE1) {
-            seriesMale.getData().add(new XYChart.Data<String, Number>(subject, 50));
-            seriesFemale.getData().add(new XYChart.Data<String, Number>(subject, 45));
-        }
+        if (byGenderList != null)
+            for (AdmisInfo a : byGenderList) {
+                seriesMale.getData().add(new XYChart.Data<String, Number>(a.getName(), a.getAdmis()));
+                seriesFemale.getData().add(new XYChart.Data<String, Number>(a.getName(), a.getAjourne()));
+            }
 
         chartStackedBarSubjectByAdmisGender.getData().addAll(seriesMale, seriesFemale);
 
-        /* End Subject By Admis Gender Stacked Bar chart */
+        /* End Subject By AdmisInfo Gender Stacked Bar chart */
 
         /* Start Subject By City Stacked Bar chart */
+        List<AdmisInfo> byCityList = yearData.getAdmisCity();
 
         XYChart.Series<String, Number> seriesTiaret = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesVialar = new XYChart.Series<>();
-        XYChart.Series<String, Number> seriesForeign = new XYChart.Series<>();
+        //XYChart.Series<String, Number> seriesForeign = new XYChart.Series<>();
 
         seriesTiaret.setName("Tiaret");
         seriesVialar.setName("Tissemsilet");
-        seriesForeign.setName("Foreign");
+        //seriesForeign.setName("Foreign");
+        if (byCityList != null)
+            for (AdmisInfo info : byCityList) {
+                seriesTiaret.getData().add(new XYChart.Data<String, Number>(info.getName(), info.getAdmis()));
+                seriesVialar.getData().add(new XYChart.Data<String, Number>(info.getName(), info.getAjourne()));
+                //seriesForeign.getData().add(new XYChart.Data<String, Number>(subject, 5));
+            }
 
-        for (String subject : Subjects.LICENCE1) {
-            seriesTiaret.getData().add(new XYChart.Data<String, Number>(subject, 40));
-            seriesVialar.getData().add(new XYChart.Data<String, Number>(subject, 25));
-            seriesForeign.getData().add(new XYChart.Data<String, Number>(subject, 5));
-        }
-
-        chartStackedBarSubjectByCity.getData().addAll(seriesTiaret, seriesVialar, seriesForeign);
+        chartStackedBarSubjectByCity.getData().addAll(seriesTiaret, seriesVialar/*, seriesForeign*/);
 
         /* End Subject By City Stacked Bar chart */
+        /* Start by Nationality Stacked Bar Chart */
+        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
+
+        /* End by Nationality Stacked Bar Chart */
+
+        XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
+        XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
+
+        seriesAdmisNat.setName("Algerien");
+        seriesNonAdmisNat.setName("Foreign");
+
+        List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
+        if (admisByNationality != null) {
+            // Data of chart
+            for (AdmisInfo admisInfo : admisByNationality) {
+                seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
+                seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
+            }
+        }
+
+        chartStackedBarSubjectByNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
     }
 }

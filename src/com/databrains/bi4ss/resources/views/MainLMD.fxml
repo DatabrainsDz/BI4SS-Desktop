@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
@@ -64,7 +63,6 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <StackedBarChart fx:id="chartStackedAdmisNationality" styleClass="cards-chart" title="Nationality">
@@ -93,7 +91,7 @@
                         </StackedBarChart>
                         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <JFXTreeTableView maxHeight="-Infinity" maxWidth="-Infinity" />
+                              <Label styleClass="cards-year-title" text="More Features" />
                            </children>
                         </StackPane>
                      </children>
@@ -124,15 +122,14 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-chart" GridPane.rowIndex="1">
-                           <children>
-                              <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="More matrices for TD, TP &amp; Exam" textAlignment="CENTER" wrappingWidth="288.462890625">
-                                 <font>
-                                    <Font size="31.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </StackPane>
+                        <StackedBarChart fx:id="chartStackedBarSubjectByNationality" styleClass="cards-chart" title="Subject by Nationality" GridPane.rowIndex="1">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </StackedBarChart>
                         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-chart" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Association rule between subjects" textAlignment="CENTER" wrappingWidth="288.462890625">

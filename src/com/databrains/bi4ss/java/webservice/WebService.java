@@ -15,6 +15,7 @@ import java.util.List;
 public class WebService {
     // IP of server
     private static final String HOST = "192.168.43.90";
+    private static final String HOST2 = "192.168.43.90:5000";
 
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
@@ -172,12 +173,81 @@ public class WebService {
         return yearData;
     }
 
-    public static Object getLevelDataBySubjects(int year, String level) {
-        return null;
+    public static YearData getLevelDataBySubjects(int year, String level, char semesterFlag) {
+        char semester, semester2;
+        if (semesterFlag == '?') {
+            semester2 = '2';
+            semester = '1';
+        } else {
+            semester = semesterFlag;
+            semester2 = '0';
+        }
+        String url = "subjects/" + year + "?current_year=" + level.charAt(level.length() - 1) +
+                "&level=" + level.substring(0, level.length() - 1) + "&semester=" + semester + "&semester2=" + semester2;
+        JSONObject rootObject = getJSONFromServer(url);
+        if (rootObject == null) {
+            System.out.println("json null");
+            return null;
+        }
+        JSONObject jsonObject = rootObject.getJSONObject("data");
+
+        YearData yearData = new YearData();
+
+        /* Start Get (parse) data of City (admitted/adjourned) */
+
+        JSONObject byCityJSONObject = jsonObject.getJSONObject("byCity");
+
+        List<AdmisInfo> admisByCities = new LinkedList<>();
+
+        for (String key : byCityJSONObject.keySet()) {
+            JSONObject jsonObj = byCityJSONObject.getJSONObject(key);
+            admisByCities.add(new AdmisInfo(getShortCuteName(key),
+                    Integer.parseInt(jsonObj.getString("Tiaret")),
+                    Integer.parseInt(jsonObj.getString("Tissemsilt"))
+            ));
+        }
+        yearData.setAdmisCity(admisByCities);
+
+        /* End Get (parse) data of City (admitted/adjourned) */
+
+        /* Start Get (parse) data of Nationality (admitted/adjourned) */
+
+        JSONObject byNatJSONObject = jsonObject.getJSONObject("byNationality");
+
+        List<AdmisInfo> admisByNationality = new LinkedList<>();
+
+        for (String key : byNatJSONObject.keySet()) {
+            JSONObject jsonObj = byNatJSONObject.getJSONObject(key);
+            int strg = 0;
+            if (jsonObj.keySet().contains("entrangère")) strg = Integer.parseInt(jsonObj.getString("entrangère"));
+            admisByNationality.add(new AdmisInfo(getShortCuteName(key),
+                    Integer.parseInt(jsonObj.getString("algérienne")),
+                    strg)
+            );
+        }
+        yearData.setAdmisNationality(admisByNationality);
+
+        /* End Get (parse) data of Nationality (admitted/adjourned) */
+
+        /* Start Get (parse) data of Gender (admitted/adjourned) */
+
+        JSONObject byGenderJSONObject = jsonObject.getJSONObject("byGender");
+        List<AdmisInfo> admisByGender = new LinkedList<>();
+        for (String key : byGenderJSONObject.keySet()) {
+            JSONObject jsonObj = byGenderJSONObject.getJSONObject(key);
+            admisByGender.add(new AdmisInfo(getShortCuteName(key),
+                    Integer.parseInt(jsonObj.getString("M")),
+                    Integer.parseInt(jsonObj.getString("F"))
+            ));
+        }
+        yearData.setAdmisGender(admisByGender);
+
+        /* End Get (parse) data of Gender (admitted/adjourned) */
+
+        return yearData;
     }
 
     private static JSONObject getJSONFromServer(String url) {
-        if(true) return null;
         JSONObject jsonObject = null;
         try {
             HttpResponse<JsonNode> jsonResponse
@@ -191,12 +261,12 @@ public class WebService {
         return jsonObject;
     }
 
-    public static boolean getPredictionProfil(char algo,char gender,char nationality,String city, double bac , int age) {
-        String url = "http://" + HOST +"profile/" + algo+"/" +gender+"/" +nationality+"/" +city+"/" +bac+"/" +age;
+    public static boolean getPredictionProfil(char algo, char gender, char nationality, String city, double bac, int age) {
+        String url = "http://" + HOST2 + "profile/" + algo + "/" + gender + "/" + nationality + "/" + city + "/" + bac + "/" + age;
         JSONObject rootObject = null;
         try {
             HttpResponse<JsonNode> jsonResponse
-                    = Unirest.get( url)
+                    = Unirest.get(url)
                     .asJson();
 
             rootObject = new JSONObject(jsonResponse.getBody().toString());
@@ -208,7 +278,19 @@ public class WebService {
             return false;
         }
 
-        return (rootObject.getInt("prediction")==1);
+        return (rootObject.getInt("prediction") == 1);
     }
 
+    public static void main(String[] args) {
+        //System.out.println(getLevelDataBySubjects(2014, "MIAS1", '?').getAdmisCity());
+    }
+
+    private static String getShortCuteName(String name) {
+        String[] splitName = name.split(" ");
+        String resultName = splitName[0] + " ";
+        for (int i = 1; i < splitName.length; i++) {
+            resultName += String.valueOf(splitName[i].charAt(0)).toUpperCase();
+        }
+        return resultName;
+    }
 }
