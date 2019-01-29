@@ -85,6 +85,7 @@ public class ProfilePerController implements Initializable {
             imgResult.setImage(new Image("com/databrains/bi4ss/resources/images/profiles/failureImage.jpg"));
             lblResult.setText("Failure !");
         }
+        imgResult.setVisible(true);
 
 }
 

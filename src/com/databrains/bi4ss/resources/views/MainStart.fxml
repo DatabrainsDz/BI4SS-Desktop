@@ -15,7 +15,7 @@
 
 <StackPane prefHeight="640.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.databrains.bi4ss.java.controllers.MainStartController">
    <children>
-      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="250.0" spacing="20.0" StackPane.alignment="TOP_LEFT">
+      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="395.0" prefWidth="1160.0" spacing="85.0" StackPane.alignment="TOP_LEFT">
          <children>
             <StackedBarChart fx:id="chartStackedBarPastYears" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Past years statistics">
               <xAxis>
@@ -25,7 +25,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </StackedBarChart>
-            <VBox spacing="40.0">
+            <VBox maxHeight="-Infinity" spacing="40.0">
                <children>
                   <Label styleClass="title" text="Welcome To BI4SS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txt-desc" text="Welcome to the BI4SS desktop app provided by the Databrains inc, in this tool you will find all the analysis we did about the university" textAlignment="CENTER" wrappingWidth="245.427734375" />
@@ -33,6 +33,9 @@
                <padding>
                   <Insets top="30.0" />
                </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,7 +46,10 @@
       </HBox>
       <VBox maxHeight="-Infinity" spacing="10.0" StackPane.alignment="BOTTOM_LEFT">
          <children>
-            <Label styleClass="lbl-select-year" text="Choose a Year to continue analysis" />
+            <Label styleClass="lbl-select-year" text="Choose a Year to continue analysis">
+               <VBox.margin>
+                  <Insets left="90.0" />
+               </VBox.margin></Label>
             <HBox alignment="CENTER" spacing="15.0">
                <children>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="cards-year-box">

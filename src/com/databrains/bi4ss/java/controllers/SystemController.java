@@ -158,9 +158,6 @@ public class SystemController implements Initializable {
             });
 
         }
-
-        ((StackedBarChart) ((HBox) mainStartView.getChildren().get(0)).getChildren().get(0))
-                .setOnMouseClicked(e -> dialogProfilePer.show());
     }
 
     private void showHideMenu() {
@@ -200,6 +197,11 @@ public class SystemController implements Initializable {
         ft.setCycleCount(1);
         ft.setAutoReverse(false);
         ft.play();
+    }
+
+    @FXML
+    private void onShowProfilePer() {
+        dialogProfilePer.show();
     }
 
     @FXML
