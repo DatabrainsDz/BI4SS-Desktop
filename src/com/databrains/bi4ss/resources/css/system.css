@@ -16,3 +16,11 @@ JFXHamburger {
     -fx-font-size: 18px;
     -fx-text-fill: linear-gradient(to left, -base, -base2);
 }
+
+.btn {
+    -fx-font-size: 17px;
+    -fx-background-radius: 5;
+    -fx-background-color: -base;
+    -fx-text-fill: #FFF;
+    -fx-cursor: hand
+}

@@ -1,27 +1,41 @@
 package com.databrains.bi4ss.java.controllers;
 
 import com.databrains.bi4ss.java.models.AdmisInfo;
+import com.databrains.bi4ss.java.models.Asociation;
 import com.databrains.bi4ss.java.models.YearData;
 import com.databrains.bi4ss.java.type.Subjects;
 import com.databrains.bi4ss.java.utils.Params;
 import com.databrains.bi4ss.java.webservice.WebService;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.*;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.sun.org.apache.xalan.internal.lib.ExsltDatetime;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainLMDController implements Initializable {
 
     // Label show selected Year and Level
+    @FXML
+    private JFXTreeTableView subjectsTable;
+    private JFXTreeTableColumn<Table, String> subjectCol, modulesCol;
     @FXML
     private Label lblYear, lblLevel;
 
@@ -34,6 +48,10 @@ public class MainLMDController implements Initializable {
     private JFXComboBox<String> comboSubject;
 
     /* Radio Select Semester [Full/Semester 1/Semester 2] */
+    // Container of radio select Semester
+    @FXML
+    private HBox boxSemester;
+
     @FXML
     private JFXRadioButton radioFull, radioSemesterOne, radioSemesterTwo;
 
@@ -47,7 +65,9 @@ public class MainLMDController implements Initializable {
 
     /* Charts of Subject */
     @FXML
-    private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity,chartStackedBarSubjectByNationality;
+    private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity, chartStackedBarSubjectByNationality;
+    List<String> subjects;
+    ArrayList<Asociation> asociations = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -96,10 +116,11 @@ public class MainLMDController implements Initializable {
 
         }
 
+        initTable();
         initComboSubject();
         initRadio();
         initChartsAdmisAndNot();
-        initChartsSubjects();
+        initChartsSubjects('?');
     }
 
     private void initRadio() {
@@ -108,41 +129,43 @@ public class MainLMDController implements Initializable {
             gridAdmis.setVisible(true);
             gridSubject.setVisible(false);
             comboSubject.setVisible(false);
+            boxSemester.setVisible(false);
+            initChartsAdmisAndNot();
         });
         radioSubject.setOnAction(e -> {
             gridAdmis.setVisible(false);
             gridSubject.setVisible(true);
             comboSubject.setVisible(true);
+            boxSemester.setVisible(true);
+            // load full semester
+            initChartsSubjects('?');
+            radioFull.setSelected(true);
         });
 
         /* Radio Of Year Semester view [Full/ by Semester] */
-        radioFull.setOnAction(e -> {
-
-        });
-        radioSemesterOne.setOnAction(e -> {
-
-        });
-        radioSemesterTwo.setOnAction(e -> {
-
-        });
+        radioSemesterOne.setOnMouseClicked(e -> initChartsSubjects('1'));
+        radioSemesterTwo.setOnMouseClicked(e -> initChartsSubjects('2'));
+        radioFull.setOnMouseClicked(e -> initChartsSubjects('?'));
     }
 
     private void initComboSubject() {
+
         // Set the data (subjects) to the comboBox
-        switch (Params.selectedLevel) {
-            case "MIAS1":
-                comboSubject.getItems().addAll(Subjects.LICENCE1);
-                break;
-            case "MIAS2":
-                comboSubject.getItems().addAll(Subjects.LICENCE2);
-                break;
-            case "MIAS3":
-                comboSubject.getItems().addAll(Subjects.LICENCE3);
-                break;
-        }
+        subjects = WebService.getSubjects(Params.selectedYear,
+                Params.selectedLevel.substring(0, Params.selectedLevel.length() - 1),
+                Integer.parseInt(Params.selectedLevel.substring(Params.selectedLevel.length() - 1, Params.selectedLevel.length())));
+        if (subjects == null)
+            return;
+
+        comboSubject.getItems().addAll(subjects);
     }
 
     private void initChartsAdmisAndNot() {
+        /* Clear charts */
+        chartStackedAdmisNationality.getData().clear();
+        chartStackedAdmisCity.getData().clear();
+        chartStackedAdmisGender.getData().clear();
+
         // Get data from server
         YearData yearData = WebService.getLevelDataByAdmis(Params.selectedYear, Params.selectedLevel);
         if (yearData == null)
@@ -210,13 +233,14 @@ public class MainLMDController implements Initializable {
 
     }
 
-    private void initChartsSubjects() {
-        char semesterFlag = '2';
-        if (radioFull.isSelected()) semesterFlag = '?';
-        else if (radioSemesterOne.isSelected()) semesterFlag = '1';
+    private void initChartsSubjects(char semesterFlag) {
+        /* Clear charts */
+        chartStackedBarSubjectByNationality.getData().clear();
+        chartStackedBarSubjectByCity.getData().clear();
+        chartStackedBarSubjectByAdmisGender.getData().clear();
 
         YearData yearData = WebService.getLevelDataBySubjects(Params.selectedYear, Params.selectedLevel, semesterFlag);
-        if(yearData == null) {
+        if (yearData == null) {
             System.out.println("Returned null");
             return;
         }
@@ -279,5 +303,113 @@ public class MainLMDController implements Initializable {
         }
 
         chartStackedBarSubjectByNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
+
+        asociations = WebService.getAsociations(Params.selectedLevel, semesterFlag);
+        loadTableData(asociations);
+        comboSubject.valueProperty().addListener((ChangeListener) (observable, oldValue, newValue) -> {
+            ArrayList<Asociation> as = new ArrayList<>();
+            if (newValue != null) {
+                String id = newValue.toString();
+                for (Asociation a : asociations) {
+                    if (a.getModule().equals(id)) {
+                        as.add(a);
+                        break;
+                    }
+                }
+                loadTableData(as);
+            } else {
+
+            }
+        });
     }
+
+    private void initTable() {
+        subjectCol = new JFXTreeTableColumn<>("Subject");
+        subjectCol.setPrefWidth(100);
+        subjectCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String>
+                                                param) -> param.getValue().getValue().sub);
+
+        modulesCol = new JFXTreeTableColumn<>("Subjects Related to");
+        modulesCol.setPrefWidth(300);
+        modulesCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String>
+                                                param) -> param.getValue().getValue().modules);
+        subjectsTable.getColumns().addAll(subjectCol, modulesCol);
+        subjectsTable.setShowRoot(false);
+
+    }
+
+    private void loadTableData(ArrayList<Asociation> list) {
+        ObservableList<Table> listFoundIndex = FXCollections.observableArrayList();
+
+        for (Asociation index : list) {
+            listFoundIndex.add(new Table(index.getModule(), index.getModules()));
+        }
+        System.out.println(listFoundIndex);
+        final TreeItem<Table> treeItem = new RecursiveTreeItem<>(listFoundIndex, RecursiveTreeObject::getChildren);
+        try {
+            subjectsTable.setRoot(treeItem);
+        } catch (Exception ex) {
+            System.out.println("Error catched !");
+        }
+    }
+
+    class Table extends RecursiveTreeObject<Table> {
+        StringProperty sub, modules;
+
+        public Table(String _sub, String _modules) {
+            sub = new SimpleStringProperty(_sub);
+            modules = new SimpleStringProperty(_modules);
+
+        }
+
+        public String getSub() {
+            return sub.get();
+        }
+
+        public StringProperty subProperty() {
+            return sub;
+        }
+
+        public void setSub(String sub) {
+            this.sub.set(sub);
+        }
+
+        public String getModules() {
+            return modules.get();
+        }
+
+        public StringProperty modulesProperty() {
+            return modules;
+        }
+
+        public void setModules(String modules) {
+            this.modules.set(modules);
+        }
+
+        public Table(StringProperty sub, StringProperty modules) {
+            this.sub = sub;
+            this.modules = modules;
+        }
+    }
+
+    @FXML
+    private void searchSubject() {
+        comboSubject.getItems().clear();
+
+        String t = comboSubject.getEditor().getText().isEmpty() ? "" : comboSubject.getEditor().getText().toLowerCase();
+
+        for (String subject : subjects) {
+            if (subject.toLowerCase().contains(t))
+                comboSubject.getItems().add(subject);
+        }
+
+        ArrayList<Asociation> as = new ArrayList<>();
+        for (Asociation asociation : asociations) {
+            if (asociation.getModule().toLowerCase().contains(t)) {
+                as.add(asociation);
+            }
+        }
+        loadTableData(as);
+    }
+
 }

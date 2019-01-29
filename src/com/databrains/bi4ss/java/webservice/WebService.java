@@ -1,6 +1,7 @@
 package com.databrains.bi4ss.java.webservice;
 
 import com.databrains.bi4ss.java.models.AdmisInfo;
+import com.databrains.bi4ss.java.models.Asociation;
 import com.databrains.bi4ss.java.models.YearData;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -9,13 +10,14 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class WebService {
     // IP of server
-    private static final String HOST = "192.168.43.90";
-    private static final String HOST2 = "192.168.43.90:5000";
+    private static final String HOST = "192.168.137.215";
+    private static final String HOST2 = "172.26.0.39:5000";
 
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
@@ -247,6 +249,23 @@ public class WebService {
         return yearData;
     }
 
+    public static List<String> getSubjects(int year, String level, int currentYear) {
+        String url = "subjects/info?current_year=" + currentYear + "&level=" + level + "&scholar_year=" + year;
+        JSONObject jsonObject = getJSONFromServer(url);
+        if (jsonObject == null) {
+            return null;
+        }
+        JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+        List<String> subjects = new LinkedList<>();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            subjects.add(jsonArray.getString(i));
+        }
+
+        return subjects;
+    }
+
     private static JSONObject getJSONFromServer(String url) {
         JSONObject jsonObject = null;
         try {
@@ -262,7 +281,7 @@ public class WebService {
     }
 
     public static boolean getPredictionProfil(char algo, char gender, char nationality, String city, double bac, int age) {
-        String url = "http://" + HOST2 + "profile/" + algo + "/" + gender + "/" + nationality + "/" + city + "/" + bac + "/" + age;
+        String url = "http://" + HOST2 + "/profile/" + algo + "/" + gender + "/" + nationality + "/" + city + "/" + bac + "/" + age;
         JSONObject rootObject = null;
         try {
             HttpResponse<JsonNode> jsonResponse
@@ -281,8 +300,29 @@ public class WebService {
         return (rootObject.getInt("prediction") == 1);
     }
 
-    public static void main(String[] args) {
-        //System.out.println(getLevelDataBySubjects(2014, "MIAS1", '?').getAdmisCity());
+    public static ArrayList<Asociation> getAsociations(String level, char semester) {
+        ArrayList<Asociation> asociation = new ArrayList<>();
+        String url = "subjects/association?current_year=" + level.charAt(level.length() - 1) +
+                "&level=" + level.substring(0, level.length() - 1) + "&semester=" + semester;
+        JSONObject rootObject = getJSONFromServer(url);
+        if (rootObject == null) {
+            return null;
+        }
+        JSONArray jsonArray = rootObject.getJSONArray("data");
+        String ass;
+        for (int j = 0; j < jsonArray.length(); j++) {
+            ass = "";
+            String key = jsonArray.getJSONObject(j).getString("subject");
+            JSONArray modules = jsonArray.getJSONObject(j).getJSONArray("relatedTo");
+            for (int i = 0; i < modules.length(); i++) {
+                ass += ", " + modules.get(i);
+            }
+            asociation.add(new Asociation(key, ass));
+
+
+        }
+
+        return asociation;
     }
 
     private static String getShortCuteName(String name) {
@@ -292,5 +332,12 @@ public class WebService {
             resultName += String.valueOf(splitName[i].charAt(0)).toUpperCase();
         }
         return resultName;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Asociation> asociations = getAsociations("MIAS1", '1');
+        for (Asociation asociation : asociations) {
+            System.out.println(asociation.getModule());
+        }
     }
 }
