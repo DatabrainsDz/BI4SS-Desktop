@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -18,12 +19,13 @@ public class Launcher extends Application {
     public void start(Stage stage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/ProfilePer.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/Home.fxml"));
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
         stage.setScene(new Scene(root));
         stage.setTitle("BI4SS Application");
+        stage.getIcons().add(new Image("/com/databrains/bi4ss/resources/images/icon_app.png"));
         Launcher.stage = stage;
         stage.show();
     }
