@@ -1,7 +1,8 @@
 .root {
     /* old color: #2196f3, #694A97 / -unique, -pink / -primary, -mint*/
     -base      : #6bbc76 ;
-    -base2     : -base;
+    -base2     : #65617d;
+    -base3     : #65617d;
 
     -primary   : #4285f4;
     -info      : #33B5E5;
@@ -50,13 +51,3 @@
     -fx-font-family: tahoma;
     -fx-background-color: #ffff;
 }
-
-/* Start change color of bar char */
-
-.default-color0.chart-bar {-fx-bar-fill: #52aa5d;}
-.default-color1.chart-bar {-fx-bar-fill: #ff5466;} /* d50000 #cc0000 */
-.default-color3.chart-bar {-fx-bar-fill: -warning;}
-.default-color2.chart-bar {-fx-bar-fill: -primary;}
-.default-color4.chart-bar {-fx-bar-fill: -info;}
-
-/* Start change color of bar char */

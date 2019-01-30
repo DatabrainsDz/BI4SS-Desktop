@@ -16,7 +16,7 @@ import java.util.List;
 
 public class WebService {
     // IP of server
-    private static final String HOST = "192.168.137.215";
+    private static final String HOST = "192.168.137.224";
     private static final String HOST2 = "172.26.0.39:5000";
 
     public static List<AdmisInfo> getPastYearsData() {
@@ -192,21 +192,22 @@ public class WebService {
             return null;
         }
         JSONObject jsonObject = rootObject.getJSONObject("data");
-
+        System.out.println("Hello : " + rootObject.toString());
         YearData yearData = new YearData();
 
         /* Start Get (parse) data of City (admitted/adjourned) */
 
         JSONObject byCityJSONObject = jsonObject.getJSONObject("byCity");
-
+        if(byCityJSONObject==null) return null;
         List<AdmisInfo> admisByCities = new LinkedList<>();
 
         for (String key : byCityJSONObject.keySet()) {
             JSONObject jsonObj = byCityJSONObject.getJSONObject(key);
+            int str=0,str2=0;
+            if (jsonObj.keySet().contains("Tissemsilt")) str=Integer.parseInt(jsonObj.getString("Tissemsilt"));
+            if (jsonObj.keySet().contains("Tiaret")) str=Integer.parseInt(jsonObj.getString("Tiaret"));
             admisByCities.add(new AdmisInfo(getShortCuteName(key),
-                    Integer.parseInt(jsonObj.getString("Tiaret")),
-                    Integer.parseInt(jsonObj.getString("Tissemsilt"))
-            ));
+                    str2, str));
         }
         yearData.setAdmisCity(admisByCities);
 
@@ -215,15 +216,18 @@ public class WebService {
         /* Start Get (parse) data of Nationality (admitted/adjourned) */
 
         JSONObject byNatJSONObject = jsonObject.getJSONObject("byNationality");
-
+        if(byNatJSONObject==null) return null;
         List<AdmisInfo> admisByNationality = new LinkedList<>();
 
         for (String key : byNatJSONObject.keySet()) {
             JSONObject jsonObj = byNatJSONObject.getJSONObject(key);
-            int strg = 0;
-            if (jsonObj.keySet().contains("entrangère")) strg = Integer.parseInt(jsonObj.getString("entrangère"));
+            int strg = 0,str=0;
+            if (jsonObj.keySet().contains("entrangère"))
+                strg = Integer.parseInt(jsonObj.getString("entrangère"));
+            if (jsonObj.keySet().contains("algérienne"))
+                str = Integer.parseInt(jsonObj.getString("algérienne"));
             admisByNationality.add(new AdmisInfo(getShortCuteName(key),
-                    Integer.parseInt(jsonObj.getString("algérienne")),
+                    str,
                     strg)
             );
         }
@@ -234,13 +238,17 @@ public class WebService {
         /* Start Get (parse) data of Gender (admitted/adjourned) */
 
         JSONObject byGenderJSONObject = jsonObject.getJSONObject("byGender");
+        if(byGenderJSONObject==null) return null;
         List<AdmisInfo> admisByGender = new LinkedList<>();
         for (String key : byGenderJSONObject.keySet()) {
             JSONObject jsonObj = byGenderJSONObject.getJSONObject(key);
+            int strg = 0,str=0;
+            if (jsonObj.keySet().contains("M"))
+                strg = Integer.parseInt(jsonObj.getString("M"));
+            if (jsonObj.keySet().contains("F"))
+                str = Integer.parseInt(jsonObj.getString("F"));
             admisByGender.add(new AdmisInfo(getShortCuteName(key),
-                    Integer.parseInt(jsonObj.getString("M")),
-                    Integer.parseInt(jsonObj.getString("F"))
-            ));
+                    strg,str));
         }
         yearData.setAdmisGender(admisByGender);
 
@@ -304,6 +312,7 @@ public class WebService {
         ArrayList<Asociation> asociation = new ArrayList<>();
         String url = "subjects/association?current_year=" + level.charAt(level.length() - 1) +
                 "&level=" + level.substring(0, level.length() - 1) + "&semester=" + semester;
+        System.out.println("Hello again: " +url);
         JSONObject rootObject = getJSONFromServer(url);
         if (rootObject == null) {
             return null;
@@ -315,7 +324,7 @@ public class WebService {
             String key = jsonArray.getJSONObject(j).getString("subject");
             JSONArray modules = jsonArray.getJSONObject(j).getJSONArray("relatedTo");
             for (int i = 0; i < modules.length(); i++) {
-                ass += ", " + modules.get(i);
+                ass +=  modules.get(i)+", ";
             }
             asociation.add(new Asociation(key, ass));
 

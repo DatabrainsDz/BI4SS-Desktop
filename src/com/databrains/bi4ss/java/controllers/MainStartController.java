@@ -37,11 +37,6 @@ public class MainStartController implements Initializable {
         seriesAdmis.setName("Admitted");
         seriesNoAdmis.setName("Adjourned");
         List<AdmisInfo> pastYearsData = WebService.getPastYearsData();
-        pastYearsData = new LinkedList<>();
-        pastYearsData.add(new AdmisInfo("2011", 200, 400));
-        pastYearsData.add(new AdmisInfo("2012", 200, 400));
-        pastYearsData.add(new AdmisInfo("2013", 600, 400));
-        pastYearsData.add(new AdmisInfo("2014", 800, 200));
 
         if(pastYearsData != null) {
             for(AdmisInfo generalYearAdmis: pastYearsData) {

@@ -1,0 +1,9 @@
+/* Start change color of bar char */
+
+.default-color0.chart-bar {-fx-bar-fill: #3cb25a;}
+.default-color1.chart-bar {-fx-bar-fill: #f25252;} /* d50000 #cc0000 */
+.default-color2.chart-bar {-fx-bar-fill: -primary;}
+.default-color3.chart-bar {-fx-bar-fill: -warning;}
+.default-color4.chart-bar {-fx-bar-fill: -info;}
+
+/* Start change color of bar char */

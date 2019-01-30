@@ -64,7 +64,7 @@
                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <StackedBarChart fx:id="chartStackedAdmisNationality" styleClass="cards-chart" title="Nationality">
+                        <StackedBarChart fx:id="chartStackedAdmisNationality" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style2.css" title="Nationality">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -72,7 +72,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart fx:id="chartStackedAdmisCity" styleClass="cards-chart" title="City" GridPane.columnIndex="1">
+                        <StackedBarChart fx:id="chartStackedAdmisCity" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style3.css" title="City" GridPane.columnIndex="1">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -80,7 +80,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart fx:id="chartStackedAdmisGender" styleClass="cards-chart" title="Gender" GridPane.rowIndex="1">
+                        <StackedBarChart fx:id="chartStackedAdmisGender" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style1.css" title="Gender" GridPane.rowIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -105,7 +105,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <StackedBarChart fx:id="chartStackedBarSubjectByAdmisGender" styleClass="cards-chart" title="Subject by Admis Gender">
+                        <StackedBarChart fx:id="chartStackedBarSubjectByAdmisGender" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style1.css" title="Subject by Admis Gender">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -113,7 +113,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart fx:id="chartStackedBarSubjectByCity" styleClass="cards-chart" title="Subject by City" GridPane.columnIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarSubjectByCity" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style3.css" title="Subject by City" GridPane.columnIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -121,7 +121,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart fx:id="chartStackedBarSubjectByNationality" styleClass="cards-chart" title="Subject by Nationality" GridPane.rowIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarSubjectByNationality" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style2.css" title="Subject by Nationality" GridPane.rowIndex="1">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -144,7 +144,7 @@
             </StackPane>
          </children>
       </HBox>
-      <HBox fx:id="boxSemester" visible="false" alignment="CENTER" prefWidth="1160.0">
+      <HBox fx:id="boxSemester" alignment="CENTER" prefWidth="1160.0" visible="false">
          <children>
             <JFXRadioButton fx:id="radioFull" selected="true" styleClass="lmd-radio" text="Full Year">
                <toggleGroup>

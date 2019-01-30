@@ -21,11 +21,11 @@
       <VBox alignment="TOP_CENTER" prefWidth="1000.0" spacing="30.0">
          <children>
             <Label styleClass="title" text="Profile Prespective" />
-            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" spacing="50.0" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER" maxHeight="-Infinity" spacing="50.0" VBox.vgrow="ALWAYS">
                <children>
-                  <ImageView fx:id="imgGender" fitHeight="367.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgGender" fitHeight="259.0" fitWidth="196.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/profiles/studentMale.jpg" />
+                        <Image url="@../images/profiles/studentMale.png" />
                      </image>
                   </ImageView>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" spacing="20.0">
@@ -53,10 +53,10 @@
                         </JFXButton>
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" spacing="10.0">
+                  <VBox alignment="CENTER" spacing="10.0">
                      <children>
                         <ImageView fx:id="imgResult" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                        <Label fx:id="lblResult" styleClass="lbl-result" text="Success !" visible="false" />
+                        <Label fx:id="lblResult" styleClass="lbl-result" />
                      </children>
                   </VBox>
                </children>

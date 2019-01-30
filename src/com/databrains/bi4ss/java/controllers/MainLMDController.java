@@ -67,7 +67,7 @@ public class MainLMDController implements Initializable {
     @FXML
     private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity, chartStackedBarSubjectByNationality;
     List<String> subjects;
-    ArrayList<Asociation> asociations = new ArrayList<>();
+    ArrayList<Asociation> asociations=new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -115,12 +115,12 @@ public class MainLMDController implements Initializable {
                 break;
 
         }
-
         initTable();
         initComboSubject();
         initRadio();
         initChartsAdmisAndNot();
         initChartsSubjects('?');
+
     }
 
     private void initRadio() {
@@ -151,13 +151,35 @@ public class MainLMDController implements Initializable {
     private void initComboSubject() {
 
         // Set the data (subjects) to the comboBox
-        subjects = WebService.getSubjects(Params.selectedYear,
+        comboSubject.valueProperty().addListener((ChangeListener) (observable, oldValue, newValue) -> {
+            ArrayList<Asociation> as = new ArrayList<>();
+            if (newValue != null) {
+                String id = newValue.toString();
+                for (Asociation a : asociations) {
+                    if (a.getModule().equals(id)) {
+                        as.add(a);
+                        break;
+                    }
+                }
+                loadTableData(as);
+            } else {
+
+            }
+        });
+       /* subjects = WebService.getSubjects(Params.selectedYear,
                 Params.selectedLevel.substring(0, Params.selectedLevel.length() - 1),
                 Integer.parseInt(Params.selectedLevel.substring(Params.selectedLevel.length() - 1, Params.selectedLevel.length())));
         if (subjects == null)
             return;
 
-        comboSubject.getItems().addAll(subjects);
+        comboSubject.getItems().addAll(subjects);*/
+    }
+    private void initComboSubject(ArrayList<Asociation> list){
+        comboSubject.getItems().clear();
+        for (Asociation asociation : list) {
+            comboSubject.getItems().add(asociation.getModule());
+        }
+
     }
 
     private void initChartsAdmisAndNot() {
@@ -304,23 +326,22 @@ public class MainLMDController implements Initializable {
 
         chartStackedBarSubjectByNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
 
-        asociations = WebService.getAsociations(Params.selectedLevel, semesterFlag);
-        loadTableData(asociations);
-        comboSubject.valueProperty().addListener((ChangeListener) (observable, oldValue, newValue) -> {
-            ArrayList<Asociation> as = new ArrayList<>();
-            if (newValue != null) {
-                String id = newValue.toString();
-                for (Asociation a : asociations) {
-                    if (a.getModule().equals(id)) {
-                        as.add(a);
-                        break;
-                    }
-                }
-                loadTableData(as);
-            } else {
 
+        updateAssociations(semesterFlag);
+        loadTableData(asociations);
+    }
+
+    private void updateAssociations(char flag){
+        if(flag=='?'){
+            //if (Params.selectedLevel.charAt(Params.selectedLevel.length() -1 ))
+            asociations=WebService.getAsociations(Params.selectedLevel, '1');
+            ArrayList<Asociation> list=WebService.getAsociations(Params.selectedLevel, '2');
+            for (Asociation asociation:list) {
+                asociations.add(asociation);
             }
-        });
+        }
+        else asociations=WebService.getAsociations(Params.selectedLevel, flag);
+        initComboSubject(asociations);
     }
 
     private void initTable() {
@@ -395,20 +416,16 @@ public class MainLMDController implements Initializable {
     @FXML
     private void searchSubject() {
         comboSubject.getItems().clear();
-
+        ArrayList<Asociation> as = new ArrayList<>();
         String t = comboSubject.getEditor().getText().isEmpty() ? "" : comboSubject.getEditor().getText().toLowerCase();
 
-        for (String subject : subjects) {
-            if (subject.toLowerCase().contains(t))
-                comboSubject.getItems().add(subject);
+        for (Asociation subject : asociations) {
+            if (subject.getModule().toLowerCase().contains(t))
+                comboSubject.getItems().add(subject.getModule());
+            as.add(subject);
         }
 
-        ArrayList<Asociation> as = new ArrayList<>();
-        for (Asociation asociation : asociations) {
-            if (asociation.getModule().toLowerCase().contains(t)) {
-                as.add(asociation);
-            }
-        }
+
         loadTableData(as);
     }
 

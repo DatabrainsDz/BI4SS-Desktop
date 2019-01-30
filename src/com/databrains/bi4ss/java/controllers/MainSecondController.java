@@ -54,6 +54,8 @@ public class MainSecondController implements Initializable {
     private void initActionLevel() {
         for (int i = 0; i < boxLevel.getChildren().size(); i++) {
             final int index = i;
+            if(i>2) return;
+
             boxLevel.getChildren().get(i).setOnMouseClicked(e -> {
                 Params.selectedLevel = Constants.LEVELS[index];
                 // Show Main LMD View

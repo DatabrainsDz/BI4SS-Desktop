@@ -17,7 +17,7 @@
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="395.0" prefWidth="1160.0" spacing="85.0" StackPane.alignment="TOP_LEFT">
          <children>
-            <StackedBarChart fx:id="chartStackedBarPastYears" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Past years statistics">
+            <StackedBarChart fx:id="chartStackedBarPastYears" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style1.css" title="Past years statistics">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -46,7 +46,7 @@
       </HBox>
       <VBox maxHeight="-Infinity" spacing="10.0" StackPane.alignment="BOTTOM_LEFT">
          <children>
-            <Label styleClass="lbl-select-year" text="Choose a Year to continue analysis">
+            <Label styleClass="lbl-select-year" text="Choose a Year to analysis">
                <VBox.margin>
                   <Insets left="90.0" />
                </VBox.margin></Label>

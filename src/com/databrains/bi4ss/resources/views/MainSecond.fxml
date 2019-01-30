@@ -66,7 +66,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <BarChart fx:id="chartBarGenderPres" styleClass="cards-chart" title="Gender Prespective">
+                        <BarChart fx:id="chartBarGenderPres" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style1.css" title="Gender Prespective">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -74,7 +74,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <StackedBarChart fx:id="chartStackedBarNatPres" styleClass="cards-chart" title="Nationality Prespective" GridPane.columnIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarNatPres" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style2.css" title="Nationality Prespective" GridPane.columnIndex="1">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -82,7 +82,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <StackedBarChart fx:id="chartStackedBarOriginCityPres" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" title="Origin City Prespective" GridPane.rowIndex="1">
+                        <StackedBarChart fx:id="chartStackedBarOriginCityPres" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="cards-chart" stylesheets="@../css/bar_chart_style/style3.css" title="Origin City Prespective" GridPane.rowIndex="1">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -92,7 +92,7 @@
                         </StackedBarChart>
                         <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cards-level-box" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <Label text="Other Matrices">
+                              <Label text="Other Metrics">
                                  <font>
                                     <Font size="33.0" />
                                  </font>

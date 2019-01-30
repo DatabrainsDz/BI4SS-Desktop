@@ -50,8 +50,8 @@ public class ProfilePerController implements Initializable {
 
         /* Listener for change img when select gender */
         String packageProfile = "com/databrains/bi4ss/resources/images/profiles/";
-        radioMale.setOnAction(e -> imgGender.setImage(new Image(packageProfile + "studentMale.jpg")));
-        radioFemale.setOnAction(e -> imgGender.setImage(new Image(packageProfile + "studentFemale.jpg")));
+        radioMale.setOnAction(e -> imgGender.setImage(new Image(packageProfile + "studentMale.png")));
+        radioFemale.setOnAction(e -> imgGender.setImage(new Image(packageProfile + "studentFemale.png")));
 
     }
 
@@ -79,14 +79,14 @@ public class ProfilePerController implements Initializable {
 
         boolean isSuccess = WebService.getPredictionProfil(algo, gender, nationality, city, bac, age);
         if (isSuccess) {
-            imgResult.setImage(new Image("com/databrains/bi4ss/resources/images/profiles/successImage.jpg"));
+            imgResult.setImage(new Image("com/databrains/bi4ss/resources/images/profiles/graduation.png"));
             lblResult.setText("Success !");
         } else {
-            imgResult.setImage(new Image("com/databrains/bi4ss/resources/images/profiles/failureImage.jpg"));
+            imgResult.setImage(new Image("com/databrains/bi4ss/resources/images/profiles/removefriend.png"));
             lblResult.setText("Failure !");
         }
         imgResult.setVisible(true);
-
+//65617d
 }
 
     @FXML

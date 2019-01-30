@@ -20,7 +20,7 @@ JFXHamburger {
 .btn {
     -fx-font-size: 17px;
     -fx-background-radius: 5;
-    -fx-background-color: -base;
+    -fx-background-color: -base3;
     -fx-text-fill: #FFF;
     -fx-cursor: hand
 }

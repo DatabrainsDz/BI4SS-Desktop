@@ -45,7 +45,7 @@
     -fx-font-family: "Comic Sans MS";
     -fx-font-size: 26px;
     -fx-font-weight: bold;
-    -fx-text-fill: linear-gradient(to left, -base, -base2);
+    -fx-text-fill: -base3;
 }
 
 /* End select year part */
