@@ -18,7 +18,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.StackedBarChart;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -68,7 +67,6 @@ public class SystemController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainStartView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/MainStart.fxml"));
-            homeView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/Home.fxml"));
         } catch(IOException ioe) {
             ioe.printStackTrace();
         }
@@ -120,6 +118,11 @@ public class SystemController implements Initializable {
                     });
                 } else if(node.getAccessibleText().equalsIgnoreCase("onLogout")) {
                     ((JFXButton) node).setOnAction(e -> { // switch to home view
+                        try {
+                            homeView = FXMLLoader.load(getClass().getResource("/com/databrains/bi4ss/resources/views/Home.fxml"));
+                        } catch (IOException ioe) {
+                            ioe.printStackTrace();
+                        }
                         ((Stage) holderPane.getScene().getWindow()).setScene(new Scene(homeView));
                         Launcher.centerOnScreen(); // make stage in the center
                     });

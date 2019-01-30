@@ -160,7 +160,7 @@ public class WebService {
 
         List<AdmisInfo> admisByGender = new LinkedList<>();
 
-        admisByGender.add(new AdmisInfo("Famale",
+        admisByGender.add(new AdmisInfo("Female",
                 Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Admis")),
                 Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Ajourné"))
         ));

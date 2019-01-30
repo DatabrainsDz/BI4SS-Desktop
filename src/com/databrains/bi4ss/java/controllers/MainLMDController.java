@@ -3,16 +3,13 @@ package com.databrains.bi4ss.java.controllers;
 import com.databrains.bi4ss.java.models.AdmisInfo;
 import com.databrains.bi4ss.java.models.Asociation;
 import com.databrains.bi4ss.java.models.YearData;
-import com.databrains.bi4ss.java.type.Subjects;
 import com.databrains.bi4ss.java.utils.Params;
 import com.databrains.bi4ss.java.webservice.WebService;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.sun.org.apache.xalan.internal.lib.ExsltDatetime;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -174,6 +171,7 @@ public class MainLMDController implements Initializable {
 
         comboSubject.getItems().addAll(subjects);*/
     }
+
     private void initComboSubject(ArrayList<Asociation> list){
         comboSubject.getItems().clear();
         for (Asociation asociation : list) {
@@ -194,15 +192,14 @@ public class MainLMDController implements Initializable {
             return;
 
         /* Start by Nationality Stacked Bar Chart */
-        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
 
-        /* End by Nationality Stacked Bar Chart */
+        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
 
         XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
 
         seriesAdmisNat.setName("Admitted");
-        seriesNonAdmisNat.setName("Adjouned");
+        seriesNonAdmisNat.setName("Adjourned");
 
         List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
         if (admisByNationality != null) {
@@ -215,17 +212,17 @@ public class MainLMDController implements Initializable {
 
         chartStackedAdmisNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
 
+        /* End by Nationality Stacked Bar Chart */
 
         /* Start by City Stacked Bar Chart */
-        List<AdmisInfo> dataCity = yearData.getAdmisCity();
 
-        /* End by City Stacked Bar Chart */
+        List<AdmisInfo> dataCity = yearData.getAdmisCity();
 
         XYChart.Series<String, Number> seriesAdmisCity = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisCity = new XYChart.Series<>();
 
-        seriesAdmisCity.setName("AdmisInfo");
-        seriesNonAdmisCity.setName("Non AdmisInfo");
+        seriesAdmisCity.setName("Admitted");
+        seriesNonAdmisCity.setName("Adjourned");
 
         List<AdmisInfo> admisByCity = yearData.getAdmisCity();
         if (admisByCity != null) {
@@ -237,6 +234,8 @@ public class MainLMDController implements Initializable {
         }
 
         chartStackedAdmisCity.getData().addAll(seriesAdmisCity, seriesNonAdmisCity);
+
+        /* End by City Stacked Bar Chart */
 
         /* Start by Gender Stacked Bar Chart */
 
@@ -274,11 +273,12 @@ public class MainLMDController implements Initializable {
 
         seriesMale.setName("Male");
         seriesFemale.setName("Female");
-        if (byGenderList != null)
+        if (byGenderList != null) {
             for (AdmisInfo a : byGenderList) {
                 seriesMale.getData().add(new XYChart.Data<String, Number>(a.getName(), a.getAdmis()));
                 seriesFemale.getData().add(new XYChart.Data<String, Number>(a.getName(), a.getAjourne()));
             }
+        }
 
         chartStackedBarSubjectByAdmisGender.getData().addAll(seriesMale, seriesFemale);
 
