@@ -60,8 +60,8 @@ public class SystemController implements Initializable {
     private StackPane mainStartView;
     private AnchorPane homeView;
 
-    // For show Settings/About Dialog
-    public static JFXDialog dialogSettings, dialogAbout, dialogProfilePer;
+    // For show About/Profile Perspective Dialog
+    public static JFXDialog dialogAbout, dialogProfilePer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

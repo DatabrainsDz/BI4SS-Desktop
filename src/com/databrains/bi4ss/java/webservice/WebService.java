@@ -16,8 +16,8 @@ import java.util.List;
 
 public class WebService {
     // IP of server
-    private static final String HOST = "192.168.137.224";
-    private static final String HOST2 = "172.26.0.39:5000";
+    private static final String HOST = "192.168.43.90";
+    private static final String HOST_DM = "192.168.43.36:5000"; // Host of flask server (get data mining result)
 
     public static List<AdmisInfo> getPastYearsData() {
         String url = "years/all";
@@ -50,7 +50,6 @@ public class WebService {
             return null;
         }
         JSONObject jsonObject = rootObject.getJSONObject("data");
-        //System.out.println(jsonObject);
 
         YearData yearData = new YearData();
 
@@ -94,7 +93,7 @@ public class WebService {
 
         List<AdmisInfo> admisByGender = new LinkedList<>();
 
-        admisByGender.add(new AdmisInfo("Famale",
+        admisByGender.add(new AdmisInfo("Female",
                 Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Admis")),
                 Integer.parseInt(byGenderJSONObject.getJSONObject("F").getString("Ajourné"))
         ));
@@ -192,7 +191,7 @@ public class WebService {
             return null;
         }
         JSONObject jsonObject = rootObject.getJSONObject("data");
-        System.out.println("Hello : " + rootObject.toString());
+        //System.out.println("Hello : " + rootObject.toString());
         YearData yearData = new YearData();
 
         /* Start Get (parse) data of City (admitted/adjourned) */
@@ -289,7 +288,7 @@ public class WebService {
     }
 
     public static boolean getPredictionProfil(char algo, char gender, char nationality, String city, double bac, int age) {
-        String url = "http://" + HOST2 + "/profile/" + algo + "/" + gender + "/" + nationality + "/" + city + "/" + bac + "/" + age;
+        String url = "http://" + HOST_DM + "/profile/" + algo + "/" + gender + "/" + nationality + "/" + city + "/" + bac + "/" + age;
         JSONObject rootObject = null;
         try {
             HttpResponse<JsonNode> jsonResponse
@@ -312,7 +311,7 @@ public class WebService {
         ArrayList<Asociation> asociation = new ArrayList<>();
         String url = "subjects/association?current_year=" + level.charAt(level.length() - 1) +
                 "&level=" + level.substring(0, level.length() - 1) + "&semester=" + semester;
-        System.out.println("Hello again: " +url);
+        //System.out.println("Hello again: " +url);
         JSONObject rootObject = getJSONFromServer(url);
         if (rootObject == null) {
             return null;
@@ -344,6 +343,7 @@ public class WebService {
     }
 
     public static void main(String[] args) {
+        // Just for testing
         ArrayList<Asociation> asociations = getAsociations("MIAS1", '1');
         for (Asociation asociation : asociations) {
             System.out.println(asociation.getModule());

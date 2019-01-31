@@ -86,8 +86,7 @@ public class ProfilePerController implements Initializable {
             lblResult.setText("Failure !");
         }
         imgResult.setVisible(true);
-//65617d
-}
+    }
 
     @FXML
     private void onClose() {

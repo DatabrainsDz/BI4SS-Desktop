@@ -36,7 +36,7 @@ public class MainLMDController implements Initializable {
     @FXML
     private Label lblYear, lblLevel;
 
-    /* Radio Select Type view [Admis and not/Subject] */
+    // Radios Select Type view [Admis and not/Subject]
     @FXML
     private JFXRadioButton radioAdmisAndNot, radioSubject;
 
@@ -44,15 +44,15 @@ public class MainLMDController implements Initializable {
     @FXML
     private JFXComboBox<String> comboSubject;
 
-    /* Radio Select Semester [Full/Semester 1/Semester 2] */
-    // Container of radio select Semester
-    @FXML
+    /* Radios Select Semester [Full/Semester 1/Semester 2] */
+
+    @FXML // Container of radio select Semester
     private HBox boxSemester;
 
     @FXML
     private JFXRadioButton radioFull, radioSemesterOne, radioSemesterTwo;
 
-    /* Box for switch between graphe of admis and subject */
+    // Box for switch between grid of admis and subject
     @FXML
     private GridPane gridAdmis, gridSubject;
 
@@ -63,8 +63,10 @@ public class MainLMDController implements Initializable {
     /* Charts of Subject */
     @FXML
     private StackedBarChart chartStackedBarSubjectByAdmisGender, chartStackedBarSubjectByCity, chartStackedBarSubjectByNationality;
+
     List<String> subjects;
-    ArrayList<Asociation> asociations=new ArrayList<>();
+
+    ArrayList<Asociation> asociations = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -134,8 +136,7 @@ public class MainLMDController implements Initializable {
             gridSubject.setVisible(true);
             comboSubject.setVisible(true);
             boxSemester.setVisible(true);
-            // load full semester
-            initChartsSubjects('?');
+            initChartsSubjects('?'); // load full semester
             radioFull.setSelected(true);
         });
 
@@ -172,7 +173,7 @@ public class MainLMDController implements Initializable {
         comboSubject.getItems().addAll(subjects);*/
     }
 
-    private void initComboSubject(ArrayList<Asociation> list){
+    private void initComboSubject(ArrayList<Asociation> list) {
         comboSubject.getItems().clear();
         for (Asociation asociation : list) {
             comboSubject.getItems().add(asociation.getModule());
@@ -193,8 +194,6 @@ public class MainLMDController implements Initializable {
 
         /* Start by Nationality Stacked Bar Chart */
 
-        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
-
         XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
 
@@ -203,7 +202,6 @@ public class MainLMDController implements Initializable {
 
         List<AdmisInfo> admisByNationality = yearData.getAdmisNationality();
         if (admisByNationality != null) {
-            // Data of chart
             for (AdmisInfo admisInfo : admisByNationality) {
                 seriesAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAdmis()));
                 seriesNonAdmisNat.getData().add(new XYChart.Data<String, Number>(admisInfo.getName(), admisInfo.getAjourne()));
@@ -215,8 +213,6 @@ public class MainLMDController implements Initializable {
         /* End by Nationality Stacked Bar Chart */
 
         /* Start by City Stacked Bar Chart */
-
-        List<AdmisInfo> dataCity = yearData.getAdmisCity();
 
         XYChart.Series<String, Number> seriesAdmisCity = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisCity = new XYChart.Series<>();
@@ -260,13 +256,15 @@ public class MainLMDController implements Initializable {
         chartStackedBarSubjectByCity.getData().clear();
         chartStackedBarSubjectByAdmisGender.getData().clear();
 
+        // Get data from server
         YearData yearData = WebService.getLevelDataBySubjects(Params.selectedYear, Params.selectedLevel, semesterFlag);
         if (yearData == null) {
             System.out.println("Returned null");
             return;
         }
 
-        /* Start Subject By AdmisInfo Gender Stacked Bar chart */
+        /* Start Subject By Admis Gender Stacked Bar chart */
+
         List<AdmisInfo> byGenderList = yearData.getAdmisGender();
         XYChart.Series<String, Number> seriesMale = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesFemale = new XYChart.Series<>();
@@ -282,32 +280,30 @@ public class MainLMDController implements Initializable {
 
         chartStackedBarSubjectByAdmisGender.getData().addAll(seriesMale, seriesFemale);
 
-        /* End Subject By AdmisInfo Gender Stacked Bar chart */
+        /* End Subject By Admis Gender Stacked Bar chart */
 
         /* Start Subject By City Stacked Bar chart */
+
         List<AdmisInfo> byCityList = yearData.getAdmisCity();
 
         XYChart.Series<String, Number> seriesTiaret = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesVialar = new XYChart.Series<>();
-        //XYChart.Series<String, Number> seriesForeign = new XYChart.Series<>();
 
         seriesTiaret.setName("Tiaret");
         seriesVialar.setName("Tissemsilet");
-        //seriesForeign.setName("Foreign");
         if (byCityList != null)
             for (AdmisInfo info : byCityList) {
                 seriesTiaret.getData().add(new XYChart.Data<String, Number>(info.getName(), info.getAdmis()));
                 seriesVialar.getData().add(new XYChart.Data<String, Number>(info.getName(), info.getAjourne()));
-                //seriesForeign.getData().add(new XYChart.Data<String, Number>(subject, 5));
             }
 
         chartStackedBarSubjectByCity.getData().addAll(seriesTiaret, seriesVialar/*, seriesForeign*/);
 
         /* End Subject By City Stacked Bar chart */
-        /* Start by Nationality Stacked Bar Chart */
-        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
 
-        /* End by Nationality Stacked Bar Chart */
+        /* Start by Nationality Stacked Bar Chart */
+
+        List<AdmisInfo> dataNationality = yearData.getAdmisNationality();
 
         XYChart.Series<String, Number> seriesAdmisNat = new XYChart.Series<>();
         XYChart.Series<String, Number> seriesNonAdmisNat = new XYChart.Series<>();
@@ -326,34 +322,34 @@ public class MainLMDController implements Initializable {
 
         chartStackedBarSubjectByNationality.getData().addAll(seriesAdmisNat, seriesNonAdmisNat);
 
+        /* End by Nationality Stacked Bar Chart */
 
         updateAssociations(semesterFlag);
         loadTableData(asociations);
     }
 
-    private void updateAssociations(char flag){
-        if(flag=='?'){
-            //if (Params.selectedLevel.charAt(Params.selectedLevel.length() -1 ))
-            asociations=WebService.getAsociations(Params.selectedLevel, '1');
-            ArrayList<Asociation> list=WebService.getAsociations(Params.selectedLevel, '2');
-            for (Asociation asociation:list) {
+    private void updateAssociations(char flag) {
+        if (flag == '?') {
+            asociations = WebService.getAsociations(Params.selectedLevel, '1');
+            ArrayList<Asociation> list = WebService.getAsociations(Params.selectedLevel, '2');
+            for (Asociation asociation : list)
                 asociations.add(asociation);
-            }
-        }
-        else asociations=WebService.getAsociations(Params.selectedLevel, flag);
+
+        } else
+            asociations = WebService.getAsociations(Params.selectedLevel, flag);
+
         initComboSubject(asociations);
     }
 
     private void initTable() {
         subjectCol = new JFXTreeTableColumn<>("Subject");
         subjectCol.setPrefWidth(100);
-        subjectCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String>
-                                                param) -> param.getValue().getValue().sub);
+        subjectCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String> param) -> param.getValue().getValue().sub);
 
         modulesCol = new JFXTreeTableColumn<>("Subjects Related to");
         modulesCol.setPrefWidth(300);
-        modulesCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String>
-                                                param) -> param.getValue().getValue().modules);
+        modulesCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<Table, String> param) -> param.getValue().getValue().modules);
+
         subjectsTable.getColumns().addAll(subjectCol, modulesCol);
         subjectsTable.setShowRoot(false);
 
@@ -365,7 +361,7 @@ public class MainLMDController implements Initializable {
         for (Asociation index : list) {
             listFoundIndex.add(new Table(index.getModule(), index.getModules()));
         }
-        System.out.println(listFoundIndex);
+
         final TreeItem<Table> treeItem = new RecursiveTreeItem<>(listFoundIndex, RecursiveTreeObject::getChildren);
         try {
             subjectsTable.setRoot(treeItem);
@@ -375,11 +371,12 @@ public class MainLMDController implements Initializable {
     }
 
     class Table extends RecursiveTreeObject<Table> {
-        StringProperty sub, modules;
+        StringProperty sub;
+        StringProperty modules;
 
-        public Table(String _sub, String _modules) {
-            sub = new SimpleStringProperty(_sub);
-            modules = new SimpleStringProperty(_modules);
+        public Table(String sub, String modules) {
+            this.sub = new SimpleStringProperty(sub);
+            this.modules = new SimpleStringProperty(modules);
 
         }
 
@@ -424,7 +421,6 @@ public class MainLMDController implements Initializable {
                 comboSubject.getItems().add(subject.getModule());
             as.add(subject);
         }
-
 
         loadTableData(as);
     }

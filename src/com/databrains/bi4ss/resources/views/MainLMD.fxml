@@ -45,7 +45,7 @@
                         <ToggleGroup fx:id="tglAdmisSubject" />
                      </toggleGroup></JFXRadioButton>
                   <JFXRadioButton fx:id="radioSubject" maxWidth="1.7976931348623157E308" styleClass="lmd-radio" text="Subjects" toggleGroup="$tglAdmisSubject" />
-                  <JFXComboBox fx:id="comboSubject" editable="true" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyReleased="#searchSubject" prefHeight="32.0" prefWidth="203.0" promptText="Type a subject to filter the table" styleClass="combo" visible="false">
+                  <JFXComboBox fx:id="comboSubject" editable="true" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyReleased="#searchSubject" prefHeight="32.0" prefWidth="203.0" promptText="Filter subjects table" styleClass="combo" visible="false">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
